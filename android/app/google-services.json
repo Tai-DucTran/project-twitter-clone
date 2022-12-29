@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "302103377027",
+    "project_id": "finaproject-twitter",
+    "storage_bucket": "finaproject-twitter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302103377027:android:54f6e96d8eb6e61e9cd7b6",
+        "android_client_info": {
+          "package_name": "vn.glints.finalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302103377027-2cqn70ck15b002n28oc0r9osbulrhqfh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD95C5lddNaMO7SYMWP8hxm104muZDZ7FU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "302103377027-2cqn70ck15b002n28oc0r9osbulrhqfh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "302103377027-dvrir7mi59ed58fpbm41utmoeeplcauf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vn.glints.twitterprojectclone"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302103377027:android:5c5b6b4fe7a7b8d19cd7b6",
+        "android_client_info": {
+          "package_name": "vn.glints.twitterprojectclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302103377027-2cqn70ck15b002n28oc0r9osbulrhqfh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD95C5lddNaMO7SYMWP8hxm104muZDZ7FU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "302103377027-2cqn70ck15b002n28oc0r9osbulrhqfh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "302103377027-dvrir7mi59ed58fpbm41utmoeeplcauf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "vn.glints.twitterprojectclone"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
