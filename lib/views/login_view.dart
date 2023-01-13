@@ -5,7 +5,6 @@ import 'package:finalproject/constants/routes.dart';
 import 'package:finalproject/services/auth/auth_exceptions.dart';
 import 'package:finalproject/services/auth/auth_service.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as devtools show log;
 
 import '../utilities/show_error_dialog.dart';
 
@@ -77,7 +76,7 @@ class _LoginViewState extends State<LoginView> {
                   final email = _email.text;
                   final password = _password.text;
                   try {
-                    AuthService.firebase().logIn(
+                    await AuthService.firebase().logIn(
                       email: email,
                       password: password,
                     );
@@ -88,13 +87,13 @@ class _LoginViewState extends State<LoginView> {
                         twitterRoute,
                         (route) => false,
                       );
-                    } else {
+                    } else if (user?.isEmailVerified ?? false) {
                       // user's email is NOT verified
                       Navigator.of(context).pushNamedAndRemoveUntil(
                         verifyEmailRoute,
                         (route) => false,
                       );
-                    }
+                    } else {}
                   } on UserNotFoundAuthException {
                     await showErrorDialog(
                       context,
