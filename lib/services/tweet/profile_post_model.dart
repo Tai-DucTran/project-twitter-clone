@@ -64,8 +64,7 @@ class _ProfilePostModelState extends State<ProfilePostModel> {
                         ),
                       ),
                       Expanded(
-                          child: Container(
-                              child: Row(
+                          child: Row(
                         children: [
                           TextButton(
                             onPressed: () {},
@@ -80,7 +79,7 @@ class _ProfilePostModelState extends State<ProfilePostModel> {
                               },
                               child: const Text('Delete'))
                         ],
-                      )))
+                      ))
                     ],
                   ),
                 ),
