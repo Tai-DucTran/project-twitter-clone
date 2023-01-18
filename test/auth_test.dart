@@ -39,7 +39,6 @@ void main() {
         email: 'taitran.phim@gmail.com',
         password: 'anypassword',
       );
-
       expect(badEmailUser,
           throwsA(const TypeMatcher<UserNotFoundAuthException>()));
 
@@ -109,11 +108,7 @@ class MockAuthProvider implements AuthProvider {
     _isInitialized = true;
   }
 
-  @override
-  initializeApp() {
-    // TODO: implement initializeApp
-    throw UnimplementedError();
-  }
+
 
   @override
   Future<AuthUser> logIn({
@@ -144,5 +139,12 @@ class MockAuthProvider implements AuthProvider {
     if (user == null) throw UserNotFoundAuthException();
     const newUser = AuthUser(isEmailVerified: true);
     _user = newUser;
+  }
+
+
+    @override
+  initializeApp() {
+    // TODO: implement initializeApp
+    throw UnimplementedError();
   }
 }
