@@ -1,8 +1,8 @@
 import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/services/tweet/postservices.dart';
+import 'package:finalproject/services/tweet/post_services/post_services.dart';
 import 'package:flutter/material.dart';
 
-import '../../services/tweet/userpost.dart';
+import '../../services/tweet/fletching_data/fletching_user_post.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -19,31 +19,22 @@ class _ProfileViewState extends State<ProfileView> {
     return Scaffold(
         backgroundColor: Colors.white,
         body: Container(
-            padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 50, left: 4, right: 4),
             child: Column(children: [
               Row(
                 children: [
-                  TextButton(
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back),
                     onPressed: () {
                       Navigator.of(context).pushNamedAndRemoveUntil(
                         twitterRoute,
                         (route) => false,
                       );
                     },
-                    child: const Text('Back'),
                   ),
-                  Expanded(
-                      child: TextButton(
-                    onPressed: () {
-                      _postService.readUserPosts();
-                    },
-                    child: const Text(
-                      'Check Up!',
-                    ),
-                  ))
                 ],
               ),
-              const Expanded(child: UserPosts())
+              const Expanded(child: FletchingUserPosts())
             ])));
   }
 }
