@@ -3,14 +3,16 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class PostService {
   // Return the userID
-  final user = FirebaseAuth.instance.currentUser?.uid;
+  final userId = FirebaseAuth.instance.currentUser?.uid;
+  final userName = FirebaseAuth.instance.currentUser?.displayName;
   // Collection Reference:
   CollectionReference posts = FirebaseFirestore.instance.collection('posts');
 
   // Creating Post -> Successful Tweet
   Future<void> creatingTweet(text) async {
     await FirebaseFirestore.instance.collection('posts').add({
-      'creator': user,
+      'creator': userId,
+      'user_name': userName,
       'timestamp': FieldValue.serverTimestamp(),
       'text': text,
     });
@@ -19,7 +21,8 @@ class PostService {
   // Creating Post -> not Tweet -> Draft
   Future<void> draftingTweet(text) async {
     await FirebaseFirestore.instance.collection('drafts').add({
-      'creator': user,
+      'creator': userId,
+      'user_name': userName,
       'timestamp': FieldValue.serverTimestamp(),
       'text': text,
     });
@@ -32,19 +35,18 @@ class PostService {
 
   // Edit userPost:
   Future<void> editPost(DocumentSnapshot doc, String text) async {
-    await FirebaseFirestore.instance
-    .collection('posts')
-    .doc(doc.id)
-    .update({'text' : {text}})
-    ;
+    await FirebaseFirestore.instance.collection('posts').doc(doc.id).update({
+      'text': {text}
+    });
   }
 
   // Testing with FirebaseFirestore:
-  // Fetch userPosts in realtimeThis
-  Future<void> readUserPosts() async {
+  // Fetch userPosts in realTime
+  Future<void> readRealTimeUserPosts() async {
     await FirebaseFirestore.instance
         .collection('posts')
-        .where('creator', isEqualTo: user)
+        .where('creator', isEqualTo: userId)
+        .orderBy('timestamp', descending: true)
         .get()
         .then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {

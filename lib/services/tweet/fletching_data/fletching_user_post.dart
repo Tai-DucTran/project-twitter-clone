@@ -1,23 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finalproject/services/tweet/profile_post_model.dart';
+import 'package:finalproject/services/tweet/models/profile_post_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class UserPosts extends StatefulWidget {
-  const UserPosts({super.key});
+class FletchingUserPosts extends StatefulWidget {
+  const FletchingUserPosts({super.key});
 
   @override
-  State<UserPosts> createState() => _UserPostsState();
+  State<FletchingUserPosts> createState() => _FletchingUserPostsState();
 }
 
-class _UserPostsState extends State<UserPosts> {
+class _FletchingUserPostsState extends State<FletchingUserPosts> {
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser?.uid;
+    final userId = FirebaseAuth.instance.currentUser?.uid;
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
             .collection('posts')
-            .where('creator', isEqualTo: user)
+            .where('creator', isEqualTo: userId)
+            .orderBy('timestamp', descending: true)
             .snapshots(),
         builder: (context, snapshot) {
           return !snapshot.hasData
@@ -29,6 +30,7 @@ class _UserPostsState extends State<UserPosts> {
                     return ProfilePostModel(
                       documentSnapshot: data,
                       creator: data['creator'],
+                      userName: data['user_name'],
                       text: data['text'] ?? '',
                       timestamp: data['timestamp'] ?? 0,
                       id: data.id,

@@ -9,13 +9,16 @@ import '../../firebase_options.dart';
 import 'auth_exceptions.dart';
 
 class FirebaseAuthProvider implements AuthProvider {
+  final FirebaseAuth _auth;
+  FirebaseAuthProvider(this._auth);
+
   @override
   Future<AuthUser> createUser({
     required String email,
     required String password,
   }) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -42,7 +45,7 @@ class FirebaseAuthProvider implements AuthProvider {
 
   @override
   AuthUser? get currentUser {
-    final user = FirebaseAuth.instance.currentUser;
+    final user = _auth.currentUser;
     if (user != null) {
       return AuthUser.fromFirebase(user);
     } else {
@@ -56,7 +59,7 @@ class FirebaseAuthProvider implements AuthProvider {
     required String password,
   }) async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
@@ -81,9 +84,9 @@ class FirebaseAuthProvider implements AuthProvider {
 
   @override
   Future<void> logOut() async {
-    final user = FirebaseAuth.instance.currentUser;
+    final user = _auth.currentUser;
     if (user != null) {
-      await FirebaseAuth.instance.signOut();
+      await _auth.signOut();
     } else {
       throw UserNotLoggedInAuthException();
     }
@@ -91,7 +94,7 @@ class FirebaseAuthProvider implements AuthProvider {
 
   @override
   Future<void> sendEmailVerification() async {
-    final user = FirebaseAuth.instance.currentUser;
+    final user = _auth.currentUser;
     if (user != null) {
       await user.sendEmailVerification();
     } else {
@@ -101,13 +104,6 @@ class FirebaseAuthProvider implements AuthProvider {
 
   @override
   Future<void> initialize() async {
-    Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-  }
-
-  @override
-  Future<void> initializeApp() async {
     Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );

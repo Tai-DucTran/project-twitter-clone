@@ -3,17 +3,21 @@ import 'package:finalproject/services/auth/auth_provider.dart';
 import 'package:finalproject/services/auth/auth_user.dart';
 import 'package:test/test.dart';
 
+/// Note: I rewrite while review this lesson again.
+
 void main() {
-  group('Mock Authenication', () {
+  group('Mock Authenticatioon', () {
     final provider = MockAuthProvider();
-    test('Shoud not be initialized to begin with', () {
+    test('Should not be initialized to begin with', () {
       expect(provider.isInitialized, false);
     });
 
-    // Testing cannot logOut if not initialized
     test('Cannot log out if not initialized', () {
-      expect(provider.logOut(),
-          throwsA(const TypeMatcher<NotInitializedException>()));
+      expect(
+          provider.logOut(),
+          throwsA(
+            const TypeMatcher<NotInitializedException>(),
+          ));
     });
 
     test('Should be able to be initialized', () async {
@@ -25,14 +29,16 @@ void main() {
       expect(provider.currentUser, null);
     });
 
-    // Testing time required to initialize
-    test('Should be able to intialize in less than 2 seconds', () async {
+    test('Should be able to initialize in less than 2 seconds', () async {
       await provider.initialize();
       expect(provider.isInitialized, true);
-    }, timeout: const Timeout(Duration(seconds: 2)));
+    },
+        timeout: const Timeout(
+          Duration(seconds: 2),
+        ));
 
     test('Create user should delegate to logIn function', () async {
-      // testing badEmail User
+      // test badEmail User
       final badEmailUser = provider.createUser(
         email: 'taitran.phim@gmail.com',
         password: 'anypassword',
@@ -40,7 +46,7 @@ void main() {
       expect(badEmailUser,
           throwsA(const TypeMatcher<UserNotFoundAuthException>()));
 
-      // testing badPasswordUser
+      // test badPassword User
       final badPasswordUser = provider.createUser(
         email: 'phim@gmail.com',
         password: '123456',
@@ -49,11 +55,10 @@ void main() {
           throwsA(const TypeMatcher<WrongPasswordAuthException>()));
 
       final user = await provider.createUser(
-        email: 'anything',
-        password: 'anything',
+        email: 'foo',
+        password: 'bar',
       );
       expect(provider.currentUser, user);
-      // testing user isEmailVerified that set false also
       expect(user.isEmailVerified, false);
     });
 
@@ -76,11 +81,11 @@ void main() {
   });
 }
 
-// Exception to ensure mockAuthProvider is already initialize
 class NotInitializedException implements Exception {}
 
 class MockAuthProvider implements AuthProvider {
   AuthUser? _user;
+  // Using _isInitialized to make it private and people outside shoudn't be reading from this property
   var _isInitialized = false;
   bool get isInitialized => _isInitialized;
 
@@ -90,6 +95,7 @@ class MockAuthProvider implements AuthProvider {
     required String password,
   }) async {
     if (!isInitialized) throw NotInitializedException();
+    // Fake create user + delayed duration:
     await Future.delayed(const Duration(seconds: 1));
     return logIn(
       email: email,
@@ -102,6 +108,7 @@ class MockAuthProvider implements AuthProvider {
 
   @override
   Future<void> initialize() async {
+    // Fake waiting for initialization + flag to true
     await Future.delayed(const Duration(seconds: 1));
     _isInitialized = true;
   }
@@ -123,7 +130,6 @@ class MockAuthProvider implements AuthProvider {
   Future<void> logOut() async {
     if (!isInitialized) throw NotInitializedException();
     if (_user == null) throw UserNotFoundAuthException();
-    // fake a waiting time for a minute
     await Future.delayed(const Duration(seconds: 1));
     _user = null;
   }

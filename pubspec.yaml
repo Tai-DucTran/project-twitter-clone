@@ -41,9 +41,16 @@ dependencies:
   cloud_firestore: ^4.3.0
   firebase_analytics: ^10.0.8
   provider: ^6.0.5
+  mocktail: ^0.3.0
+  equatable: ^2.0.5
+  firebase_storage: ^11.0.10
+  image_picker: ^0.8.6+1
+
 
 dev_dependencies:
   flutter_test:
+    sdk: flutter
+  integration_test:
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to

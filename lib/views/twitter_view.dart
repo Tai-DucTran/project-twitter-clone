@@ -1,9 +1,9 @@
 // Create the main UI of Twitter
 import 'package:finalproject/services/auth/auth_service.dart';
-import 'package:finalproject/services/tweet/feedposts.dart';
+import 'package:finalproject/services/tweet/fletching_data/fletching_feed_posts.dart';
 import 'package:flutter/material.dart';
 import '../constants/routes.dart';
-import '../emums/menu_action.dart';
+
 import 'drawer/myheaderdrawer.dart';
 
 class Twitter extends StatefulWidget {
@@ -23,30 +23,6 @@ class _TwitterState extends State<Twitter> {
           backgroundColor: Colors.white,
           elevation: 0.5,
           title: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
-          actions: [
-            PopupMenuButton<MenuAction>(
-              onSelected: (value) async {
-                switch (value) {
-                  case MenuAction.logout:
-                    final shouldLogout = await showLogOutDialog(context);
-                    if (shouldLogout) {
-                      await AuthService.firebase().logOut();
-                      Navigator.of(context)
-                          .pushNamedAndRemoveUntil(loginRoute, (_) => false);
-                    }
-                }
-              },
-              itemBuilder: (context) {
-                return const [
-                  // Create a Poppup MenuItem
-                  PopupMenuItem<MenuAction>(
-                    value: MenuAction.logout,
-                    child: Text('Log out'),
-                  )
-                ];
-              },
-            )
-          ],
         ),
         // Adding-Tweet Button
         floatingActionButton: FloatingActionButton(
@@ -68,18 +44,80 @@ class _TwitterState extends State<Twitter> {
                 child: MyHeaderDrawer(),
               ),
               ListTile(
-                title: const Text(
-                  'Profile',
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
+                title: Row(
+                  children: const [
+                    Icon(
+                      Icons.account_circle_rounded,
+                      size: 40,
+                      color: Colors.black,
+                    ),
+                    Text(
+                      'Profile',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
                 onTap: () {
                   Navigator.of(context)
                       .pushNamedAndRemoveUntil(profileRoute, (route) => false);
                 },
               ),
+              const SizedBox(
+                height: 8,
+              ),
+              ListTile(
+                title: Row(
+                  children: const [
+                    Icon(
+                      Icons.admin_panel_settings_outlined,
+                      size: 40,
+                      color: Colors.black,
+                    ),
+                    Text(
+                      'Edit Profile Testing',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      editProfileRoute, (route) => false);
+                },
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ListTile(
+                  title: Row(
+                    children: const [
+                      Icon(
+                        Icons.logout_outlined,
+                        size: 40,
+                        color: Colors.black,
+                      ),
+                      Text(
+                        'Logout',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                  onTap: () async {
+                    final shouldLogout = await showLogOutDialog(context);
+                    if (shouldLogout) {
+                      await AuthService.firebase().logOut();
+                      Navigator.of(context)
+                          .pushNamedAndRemoveUntil(loginRoute, (_) => false);
+                    }
+                  }),
             ],
           ),
         ));

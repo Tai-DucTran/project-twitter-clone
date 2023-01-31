@@ -4,8 +4,10 @@
 import 'package:finalproject/constants/routes.dart';
 import 'package:finalproject/services/auth/auth_exceptions.dart';
 import 'package:finalproject/services/auth/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../services/user/user_firestore_service.dart';
 import '../utilities/show_error_dialog.dart';
 
 class LoginView extends StatefulWidget {
@@ -35,6 +37,9 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    // Check if user is in database
+    UserService _userService = UserService();
+
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -80,13 +85,26 @@ class _LoginViewState extends State<LoginView> {
                       email: email,
                       password: password,
                     );
+                    final userName =
+                        FirebaseAuth.instance.currentUser?.displayName;
                     final user = AuthService.firebase().currentUser;
+                    // user's email is verified
                     if (user?.isEmailVerified ?? true) {
-                      // user's email is verified
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                        twitterRoute,
-                        (route) => false,
-                      );
+                      try {
+                        if (userName != null) {
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                            twitterRoute,
+                            (route) => false,
+                          );
+                        } else {
+                          Navigator.of(context).pushNamedAndRemoveUntil(
+                            createUserNameRoute,
+                            (route) => false,
+                          );
+                        }
+                      } on UserHasNotCreatedUserNameYet {
+                        await showErrorDialog(context, 'User name not found');
+                      }
                     } else if (user?.isEmailVerified ?? false) {
                       // user's email is NOT verified
                       Navigator.of(context).pushNamedAndRemoveUntil(

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyHeaderDrawer extends StatefulWidget {
@@ -8,6 +9,7 @@ class MyHeaderDrawer extends StatefulWidget {
 }
 
 class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
+  final userName = FirebaseAuth.instance.currentUser?.displayName;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,7 +20,7 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
         child: Column(
           children: [
             Container(
-              margin: const EdgeInsets.only(right: 200),
+              margin: const EdgeInsets.only(right: 150),
               height: 55,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
@@ -27,18 +29,18 @@ class _MyHeaderDrawerState extends State<MyHeaderDrawer> {
             ),
             Expanded(
                 child: (Container(
-                    padding: const EdgeInsets.only(right: 200, top: 10),
+                    padding: const EdgeInsets.only(right: 150, top: 10),
                     child: Column(
                       textDirection: TextDirection.ltr,
-                      children: const [
+                      children: [
                         Text(
-                          'user_name',
-                          style: TextStyle(
+                          userName.toString(),
+                          style: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        Text('@username'),
+                        Text("@${userName.toString()}"),
                       ],
                     ))))
           ],

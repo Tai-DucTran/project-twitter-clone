@@ -1,7 +1,5 @@
 import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/services/tweet/post_services/post_services.dart';
 import 'package:flutter/material.dart';
-
 import '../../services/tweet/fletching_data/fletching_user_post.dart';
 
 class ProfileView extends StatefulWidget {
@@ -12,8 +10,6 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
-  final PostService _postService = PostService();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +20,10 @@ class _ProfileViewState extends State<ProfileView> {
               Row(
                 children: [
                   IconButton(
-                    icon: const Icon(Icons.arrow_back),
+                    icon: const Icon(
+                      Icons.arrow_back,
+                      size: 27,
+                    ),
                     onPressed: () {
                       Navigator.of(context).pushNamedAndRemoveUntil(
                         twitterRoute,

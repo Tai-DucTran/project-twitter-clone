@@ -6,3 +6,5 @@ const twitterRoute = '/twitter/';
 const verifyEmailRoute = '/verify-email/';
 const addTweetRoute = '/add_tweet/';
 const profileRoute = '/profile_view/';
+const createUserNameRoute = '/create_user_name_view.dart/';
+const editProfileRoute = '/edit_profile_view.dart/';
