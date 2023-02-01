@@ -1,5 +1,8 @@
+
+import 'dart:io' show File;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../constants/routes.dart';
 
@@ -11,6 +14,10 @@ class EditProfileView extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfileView> {
+  late File _profileImage;
+  late File _bannerImage;
+
+  final picker = ImagePicker();
   final userName = FirebaseAuth.instance.currentUser?.displayName;
   @override
   Widget build(BuildContext context) {
@@ -112,12 +119,12 @@ class _EditProfileState extends State<EditProfileView> {
                       autofocus: false,
                       enableSuggestions: false,
                       maxLength: 15,
-                      decoration: InputDecoration(
-                        hintText: '$userName',
-                        enabledBorder: const OutlineInputBorder(
+                      decoration: const InputDecoration(
+                        hintText: 'Avatar image URL',
+                        enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white)),
-                        counter: const Offstage(),
-                        hintStyle: const TextStyle(height: 2.5),
+                        counter: Offstage(),
+                        hintStyle: TextStyle(height: 2.5),
                       ),
                     ),
                   ),
@@ -137,7 +144,7 @@ class _EditProfileState extends State<EditProfileView> {
                 const SizedBox(
                   width: 110,
                   child: Text(
-                    'backgroundURL',
+                    'bannerURL',
                     style: TextStyle(
                       fontSize: 18,
                     ),
@@ -151,12 +158,12 @@ class _EditProfileState extends State<EditProfileView> {
                       autofocus: false,
                       enableSuggestions: false,
                       maxLength: 15,
-                      decoration: InputDecoration(
-                        hintText: '$userName',
-                        enabledBorder: const OutlineInputBorder(
+                      decoration: const InputDecoration(
+                        hintText: 'Banner image URL',
+                        enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.white)),
-                        counter: const Offstage(),
-                        hintStyle: const TextStyle(height: 2.5),
+                        counter: Offstage(),
+                        hintStyle: TextStyle(height: 2.5),
                       ),
                     ),
                   ),
