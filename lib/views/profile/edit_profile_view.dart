@@ -1,4 +1,3 @@
-
 import 'dart:io' show File;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +13,22 @@ class EditProfileView extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfileView> {
-  late File _profileImage;
-  late File _bannerImage;
-
+  // late File _profileImage;
+  // late File _bannerImage;
   final picker = ImagePicker();
+
+  // Future getImage(int type) async {
+  //   final pickedFile = await picker.pickImage(source: ImageSource.camera);
+  //   setState(() {
+  //     if (pickedFile != null && type == 0) {
+  //       _profileImage = File(pickedFile.path);
+  //     }
+  //     if (pickedFile != null && type == 1) {
+  //       _bannerImage = File(pickedFile.path);
+  //     }
+  //   });
+  // }
+
   final userName = FirebaseAuth.instance.currentUser?.displayName;
   @override
   Widget build(BuildContext context) {
@@ -64,7 +75,7 @@ class _EditProfileState extends State<EditProfileView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
-                  width: 100,
+                  width: 80,
                   child: Text(
                     'Name',
                     style: TextStyle(
@@ -98,12 +109,12 @@ class _EditProfileState extends State<EditProfileView> {
           margin: const EdgeInsets.only(top: 2),
           child: Column(children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
-                  width: 100,
+                  width: 110,
                   child: Text(
                     'avataURL',
                     style: TextStyle(
@@ -111,24 +122,21 @@ class _EditProfileState extends State<EditProfileView> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 200,
-                  child: Form(
-                    child: TextFormField(
-                      autocorrect: false,
-                      autofocus: false,
-                      enableSuggestions: false,
-                      maxLength: 15,
-                      decoration: const InputDecoration(
-                        hintText: 'Avatar image URL',
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white)),
-                        counter: Offstage(),
-                        hintStyle: TextStyle(height: 2.5),
-                      ),
+                Card(
+                  margin: const EdgeInsets.only(right: 80),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      // getImage(0);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black12,
+                    ),
+                    child: const Text(
+                      "Upload Image",
+                      style: TextStyle(color: Colors.black87),
                     ),
                   ),
-                )
+                ),
               ],
             )
           ]),
@@ -137,7 +145,7 @@ class _EditProfileState extends State<EditProfileView> {
           margin: const EdgeInsets.only(top: 2),
           child: Column(children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -150,24 +158,19 @@ class _EditProfileState extends State<EditProfileView> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 200,
-                  child: Form(
-                    child: TextFormField(
-                      autocorrect: false,
-                      autofocus: false,
-                      enableSuggestions: false,
-                      maxLength: 15,
-                      decoration: const InputDecoration(
-                        hintText: 'Banner image URL',
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.white)),
-                        counter: Offstage(),
-                        hintStyle: TextStyle(height: 2.5),
-                      ),
+                Card(
+                  margin: const EdgeInsets.only(right: 80),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black12,
+                    ),
+                    child: const Text(
+                      "Upload Image",
+                      style: TextStyle(color: Colors.black87),
                     ),
                   ),
-                )
+                ),
               ],
             )
           ]),

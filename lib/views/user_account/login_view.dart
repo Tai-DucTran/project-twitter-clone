@@ -7,11 +7,13 @@ import 'package:finalproject/services/auth/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../services/user/user_firestore_service.dart';
-import '../utilities/show_error_dialog.dart';
+import '../../services/user/user_firestore_service.dart';
+import '../../utilities/show_error_dialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
+
+ 
 
   @override
   State<LoginView> createState() => _LoginViewState();
