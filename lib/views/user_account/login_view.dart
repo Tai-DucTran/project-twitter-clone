@@ -6,14 +6,10 @@ import 'package:finalproject/services/auth/auth_exceptions.dart';
 import 'package:finalproject/services/auth/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
-import '../../services/user/user_firestore_service.dart';
 import '../../utilities/show_error_dialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
-
- 
 
   @override
   State<LoginView> createState() => _LoginViewState();
@@ -39,9 +35,6 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    // Check if user is in database
-    UserService _userService = UserService();
-
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -64,6 +57,7 @@ class _LoginViewState extends State<LoginView> {
               const Text(''),
               TextField(
                 controller: _email,
+                key: const Key('login-email-textfield'),
                 enableSuggestions: false,
                 autocorrect: false,
                 keyboardType: TextInputType.emailAddress,
@@ -72,6 +66,7 @@ class _LoginViewState extends State<LoginView> {
               ),
               TextField(
                 controller: _password,
+                key: const Key('login-password-textfield'),
                 obscureText: true,
                 enableSuggestions: false,
                 autocorrect: false,

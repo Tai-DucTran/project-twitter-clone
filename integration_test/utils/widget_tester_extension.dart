@@ -28,7 +28,6 @@ extension WidgetTesterX on WidgetTester {
   }
 }
 
-
 class CreateWidgetUnderTest extends StatefulWidget {
   const CreateWidgetUnderTest({super.key});
 
