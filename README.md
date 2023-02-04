@@ -30,37 +30,7 @@ This project used: Flutter SDK, Dart, Firebase Auth
 
 - IDE: VSCode
 
-- project file structure:
-    -lib/main: main.dart to run the application
 
-    -lib/views: these views are view_screens of each step such as login, 
-    register, verify email, twitter app view, tweet.
 
-    -lib/utilities: show_error_dialog
 
-    -lib/constants: routes (contains all routes)
-
-    -lib/emums: menu having logout function
-
-    -lib/services/auth: relative aut files 
-
-    -assets/images/: logo.png
-
-## screenflow of the core user flow:
-
-1. User hasn't signed up yet
-    - The user goes to the Register View to sign up for your account.
-    - The app requests the user to verify the email.
-    - Firebase Auth sends a verification email to the user.
-    - After verifying the account, the use can log in.
-    - In the main UI, the user can click on the 'tweet' icon on the right of the bottom to go to the 'Add Tweet'
-    - The user can write the tweet with 280 words limited.
-    - Press the 'cancel' TextButton to cancel and return to the HomePage.
-    - Press the icon button on the right of the top to log out
-    
-2. User signed up already and can login:
-    - The process is the same as the first one.
-    
-A screenflow of the core user flows by images: 
-click on this link to view: https://bit.ly/3hR0Lxg
     
