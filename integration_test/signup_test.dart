@@ -148,8 +148,8 @@ class FirebaseAuth {
     await Future.delayed(const Duration(seconds: 1));
     return User(email, password);
   }
+  // Mock FirebaseAuth -> current user
 
-  // Mock FirebaseAuth -> sendEmailVerification
 }
 
 class User extends Equatable {

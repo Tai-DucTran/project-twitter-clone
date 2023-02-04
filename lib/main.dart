@@ -1,6 +1,5 @@
 import 'package:finalproject/constants/routes.dart';
 import 'package:finalproject/services/auth/auth_service.dart';
-import 'package:finalproject/services/user/user_firestore_service.dart';
 import 'package:finalproject/views/profile/edit_profile_view.dart';
 import 'package:finalproject/views/tweet/add_tweet.dart';
 import 'package:finalproject/views/profile/create_user_name_view.dart';
