@@ -33,21 +33,20 @@ class ProfilePostModel extends StatefulWidget {
 class _ProfilePostModelState extends State<ProfilePostModel> {
   @override
   Widget build(BuildContext context) {
-    final userId = FirebaseAuth.instance.currentUser?.uid;
-    final userName = FirebaseAuth.instance.currentUser?.displayName;
-    final PostService _postService = PostService();
+    final PostService postService = PostService();
 
     return Card(
         margin: const EdgeInsets.only(left: 0, right: 0, top: 5, bottom: 10),
         child: Column(
           children: <Widget>[
             ListTile(
+              dense: true,
               // leading - User's Avata
               leading: Column(
                 children: const [
                   Icon(
                     Icons.supervised_user_circle_outlined,
-                    size: 50,
+                    size: 45,
                   ),
                 ],
               ),
@@ -70,8 +69,8 @@ class _ProfilePostModelState extends State<ProfilePostModel> {
                   ),
                   Column(
                     children: [
-                      // const Padding(
-                      //     padding: EdgeInsets.only(left: 150, right: 0)),
+                      const Padding(
+                          padding: EdgeInsets.only(left: 150, right: 0)),
                       // Popup Menu Button
                       PopupMenuButton<MenuPost>(
                         onSelected: (value) async {
@@ -80,7 +79,7 @@ class _ProfilePostModelState extends State<ProfilePostModel> {
                               final shouldDelete =
                                   await showDeleteDialog(context);
                               if (shouldDelete) {
-                                await _postService
+                                await postService
                                     .deletePost(widget.documentSnapshot);
                               }
                             // case MenuPost.edit:
