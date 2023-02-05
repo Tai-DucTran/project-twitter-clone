@@ -1,8 +1,7 @@
 import 'package:finalproject/constants/routes.dart';
-
+import 'package:finalproject/services/user/user_firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart' show User;
 
 class CreateUserNameView extends StatefulWidget {
   const CreateUserNameView({super.key});
@@ -13,7 +12,7 @@ class CreateUserNameView extends StatefulWidget {
 
 class _CreateUserNameViewState extends State<CreateUserNameView> {
   String userName = '';
-  final userId = FirebaseAuth.instance.currentUser?.uid;
+  final UserService _userService = UserService();
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +44,12 @@ class _CreateUserNameViewState extends State<CreateUserNameView> {
               ),
               TextButton(
                 onPressed: () async {
-                  // Creating userInformation
+                  // Creating userName in FirebaseAuth
                   FirebaseAuth.instance.currentUser
                       ?.updateDisplayName(userName);
+                  // Creating userInformation in Firestore:
+                  _userService.creatingUserInformation(userName);
+
                   Navigator.of(context)
                       .pushNamedAndRemoveUntil(twitterRoute, (route) => false);
                 },
@@ -59,17 +61,6 @@ class _CreateUserNameViewState extends State<CreateUserNameView> {
                   ),
                 ),
               ),
-              TextButton(
-                onPressed: () async {
-                  final userName =
-                      FirebaseAuth.instance.currentUser?.displayName.toString();
-                  print(userName);
-                },
-                child: const Text(
-                  'Check if userInformation Exist',
-                  style: TextStyle(fontSize: 18),
-                ),
-              )
             ],
           )),
     );

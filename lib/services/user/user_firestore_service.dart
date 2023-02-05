@@ -1,5 +1,3 @@
-import 'dart:core';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -7,15 +5,16 @@ class UserService {
   final userId = FirebaseAuth.instance.currentUser?.uid;
   final userEmail = FirebaseAuth.instance.currentUser?.email;
   final userName = FirebaseAuth.instance.currentUser?.displayName;
+
   // Collection Reference:
   CollectionReference usersCollection =
       FirebaseFirestore.instance.collection('users');
 
   // Creating User Information (email, userName, userID)
   Future<void> creatingUserInformation(userName) async {
-    await usersCollection.doc(userId).set({
+    await usersCollection.add({
       'user_id': userId,
-      '@user_name': '@$userName',
+      'user_name': userName,
       'email': userEmail,
     });
   }

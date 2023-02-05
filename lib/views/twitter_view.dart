@@ -95,6 +95,7 @@ class _TwitterState extends State<Twitter> {
               ),
               ListTile(
                   title: Row(
+                    key: const Key('logout-button-in-drawer'),
                     children: const [
                       Icon(
                         Icons.logout_outlined,
@@ -131,6 +132,7 @@ Future<bool> showLogOutDialog(BuildContext context) {
     context: context,
     builder: (context) {
       return AlertDialog(
+        key: const Key('alert-dialog-drawer'),
         title: const Text('Sign Out'),
         content: const Text('Are you sure you want to sign out?'),
         actions: [

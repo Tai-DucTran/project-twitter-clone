@@ -41,6 +41,7 @@ class _EditProfileState extends State<EditProfileView> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              // cancelTextButton
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pushNamedAndRemoveUntil(
@@ -57,6 +58,7 @@ class _EditProfileState extends State<EditProfileView> {
                 'Edit Profile',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
+              // saveTextButton
               TextButton(
                   onPressed: () {},
                   child: const Text('Save',
@@ -71,8 +73,6 @@ class _EditProfileState extends State<EditProfileView> {
           child: Column(children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
                   width: 80,
@@ -110,8 +110,6 @@ class _EditProfileState extends State<EditProfileView> {
           child: Column(children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
                   width: 110,
@@ -146,8 +144,6 @@ class _EditProfileState extends State<EditProfileView> {
           child: Column(children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
                   width: 110,

@@ -47,16 +47,9 @@ class HomePage extends StatelessWidget {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
             final user = AuthService.firebase().currentUser;
-            final userName = FirebaseAuth.instance.currentUser?.displayName;
             if (user != null) {
               if (user.isEmailVerified) {
-                // // if currentUserID is not in the Firestore => createUserNameRoute
-                if (userName == null) {
-                  return const CreateUserNameView();
-                } else {
-                  // if currentUserId is in the Firestore => return TwitterRouute;
-                  return const Twitter();
-                }
+                return const Twitter();
               } else {
                 return const VerifyEmailView();
               }

@@ -54,7 +54,7 @@ class _LoginViewState extends State<LoginView> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const Text(''),
+              const SizedBox(height: 10),
               TextField(
                 controller: _email,
                 key: const Key('login-email-textfield'),
@@ -77,38 +77,37 @@ class _LoginViewState extends State<LoginView> {
                 onPressed: () async {
                   final email = _email.text;
                   final password = _password.text;
+
                   try {
                     await AuthService.firebase().logIn(
                       email: email,
                       password: password,
                     );
+
+                    final user = AuthService.firebase().currentUser;
                     final userName =
                         FirebaseAuth.instance.currentUser?.displayName;
-                    final user = AuthService.firebase().currentUser;
+
                     // user's email is verified
-                    if (user?.isEmailVerified ?? true) {
-                      try {
-                        if (userName != null) {
-                          Navigator.of(context).pushNamedAndRemoveUntil(
-                            twitterRoute,
-                            (route) => false,
-                          );
-                        } else {
-                          Navigator.of(context).pushNamedAndRemoveUntil(
-                            createUserNameRoute,
-                            (route) => false,
-                          );
-                        }
-                      } on UserHasNotCreatedUserNameYet {
-                        await showErrorDialog(context, 'User name not found');
+                    if (user?.isEmailVerified ?? false) {
+                      if (userName != null) {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                          twitterRoute,
+                          (route) => false,
+                        );
+                      } else {
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                          createUserNameRoute,
+                          (route) => false,
+                        );
                       }
-                    } else if (user?.isEmailVerified ?? false) {
+                    } else {
                       // user's email is NOT verified
                       Navigator.of(context).pushNamedAndRemoveUntil(
                         verifyEmailRoute,
                         (route) => false,
                       );
-                    } else {}
+                    }
                   } on UserNotFoundAuthException {
                     await showErrorDialog(
                       context,
@@ -131,6 +130,7 @@ class _LoginViewState extends State<LoginView> {
                   style: TextStyle(fontSize: 16),
                 ),
               ),
+              // Register Button
               TextButton(
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(

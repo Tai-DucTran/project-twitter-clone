@@ -1,5 +1,4 @@
 //  RegisterView:
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finalproject/constants/routes.dart';
 import 'package:finalproject/services/auth/auth_exceptions.dart';
 import 'package:finalproject/services/auth/auth_service.dart';
@@ -82,7 +81,6 @@ class _RegisterViewState extends State<RegisterView> {
                         email: email,
                         password: password,
                       );
-
                       Navigator.of(context).pushNamed(verifyEmailRoute);
                     } on WeakPasswordAuthException {
                       await showErrorDialog(
@@ -90,7 +88,6 @@ class _RegisterViewState extends State<RegisterView> {
                         'Weak password',
                       );
                     } on EmailAlreadyInUseAuthException {
-                  
                       await showErrorDialog(
                         context,
                         'Email already in use',
