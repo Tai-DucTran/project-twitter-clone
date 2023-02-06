@@ -6,10 +6,18 @@ This is my first project after over 1 week learning flutter/dart/firebase. Hones
 I've been developing a clone twitter application with a minimize features suchs as:
 
     # successful development:
-    -using Firebase Authentication to register, log-in and verify-email by email and password.
-    -a nice UI
-    -a tweet icon
-    -a add_tweet page with 280 words
+    Login Page
+    Register Page:
+        -Create User Name
+    Verify Page
+    Twitter Main Page
+    Profile Page:
+        -Edit Profile Page
+    Twitter feature:
+        -Add tweet
+        -Delete tweet
+        -Show tweets from other users
+        
 
     # fail development:
     -using Firebase Storre to collect user data, tweet data..
