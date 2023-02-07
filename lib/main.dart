@@ -1,14 +1,13 @@
 import 'package:finalproject/constants/routes.dart';
 import 'package:finalproject/services/auth/auth_service.dart';
 import 'package:finalproject/views/profile/edit_profile_view.dart';
-import 'package:finalproject/views/tweet/add_tweet.dart';
+import 'package:finalproject/views/add_tweet/add_tweet.dart';
 import 'package:finalproject/views/profile/create_user_name_view.dart';
 import 'package:finalproject/views/user_account/login_view.dart';
 import 'package:finalproject/views/profile/profile_view.dart';
 import 'package:finalproject/views/user_account/register_view.dart';
 import 'package:finalproject/views/twitter_view.dart';
 import 'package:finalproject/views/user_account/verify_email_view.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

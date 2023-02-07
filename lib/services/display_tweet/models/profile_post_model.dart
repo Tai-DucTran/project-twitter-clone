@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finalproject/services/tweet/post_services/post_firestore_services.dart';
+import 'package:finalproject/services/display_tweet/post_services/post_firestore_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +11,7 @@ enum MenuPost {
 class ProfilePostModel extends StatefulWidget {
   final String id;
   final String creator;
-  final String userName;
+  // final String userName;
   final String text;
   final DocumentSnapshot documentSnapshot;
   final Timestamp timestamp;
@@ -23,7 +23,7 @@ class ProfilePostModel extends StatefulWidget {
     required this.documentSnapshot,
     required this.timestamp,
     required this.id,
-    required this.userName,
+    // required this.userName,
   });
 
   @override
@@ -34,6 +34,7 @@ class _ProfilePostModelState extends State<ProfilePostModel> {
   @override
   Widget build(BuildContext context) {
     final PostService postService = PostService();
+    final userName = FirebaseAuth.instance.currentUser?.displayName;
 
     return Card(
         margin: const EdgeInsets.only(left: 0, right: 0, top: 5, bottom: 10),
@@ -58,7 +59,7 @@ class _ProfilePostModelState extends State<ProfilePostModel> {
                     children: [
                       Text(
                         // userName,
-                        widget.userName,
+                        userName.toString(),
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

@@ -12,7 +12,6 @@ class PostService {
   Future<void> creatingTweet(text) async {
     await FirebaseFirestore.instance.collection('posts').add({
       'creator': userId,
-      'user_name': userName,
       'timestamp': FieldValue.serverTimestamp(),
       'text': text,
     });
@@ -22,7 +21,6 @@ class PostService {
   Future<void> draftingTweet(text) async {
     await FirebaseFirestore.instance.collection('drafts').add({
       'creator': userId,
-      'user_name': userName,
       'timestamp': FieldValue.serverTimestamp(),
       'text': text,
     });
@@ -38,6 +36,23 @@ class PostService {
     await FirebaseFirestore.instance.collection('posts').doc(doc.id).update({
       'text': {text}
     });
+  }
+
+  // Preparing docIds with
+  Future<void> returnDocIdForSingleUser(userId) async {
+    await FirebaseFirestore.instance
+        .collection('posts')
+        .where('creator', isEqualTo: userId)
+        .snapshots();
+  }
+
+  // Edit updateUserName:
+  Future<void> updateUserName(
+      DocumentSnapshot doc, String updateUserName) async {
+    await FirebaseFirestore.instance
+        .collection('posts')
+        .doc(doc.id)
+        .update({'user_name': updateUserName});
   }
 
   // Testing with FirebaseFirestore:

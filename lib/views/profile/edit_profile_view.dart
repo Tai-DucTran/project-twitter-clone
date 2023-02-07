@@ -1,4 +1,4 @@
-import 'dart:io' show File;
+import 'package:finalproject/services/user/user_firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -13,23 +13,13 @@ class EditProfileView extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfileView> {
-  // late File _profileImage;
-  // late File _bannerImage;
   final picker = ImagePicker();
-
-  // Future getImage(int type) async {
-  //   final pickedFile = await picker.pickImage(source: ImageSource.camera);
-  //   setState(() {
-  //     if (pickedFile != null && type == 0) {
-  //       _profileImage = File(pickedFile.path);
-  //     }
-  //     if (pickedFile != null && type == 1) {
-  //       _bannerImage = File(pickedFile.path);
-  //     }
-  //   });
-  // }
+  String newName = '';
+  final UserService _userService = UserService();
+  final userId = FirebaseAuth.instance.currentUser?.uid;
 
   final userName = FirebaseAuth.instance.currentUser?.displayName;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +50,16 @@ class _EditProfileState extends State<EditProfileView> {
               ),
               // saveTextButton
               TextButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    Navigator.of(context).pushNamedAndRemoveUntil(
+                      twitterRoute,
+                      (route) => false,
+                    );
+                    _userService.changeUserName(userId, newName);
+                    print(userId);
+                    FirebaseAuth.instance.currentUser
+                        ?.updateDisplayName(newName);
+                  },
                   child: const Text('Save',
                       style: TextStyle(color: Colors.black54, fontSize: 18)))
             ],
@@ -98,6 +97,11 @@ class _EditProfileState extends State<EditProfileView> {
                         counter: const Offstage(),
                         hintStyle: const TextStyle(height: 2.5),
                       ),
+                      onChanged: (value) {
+                        setState(() {
+                          newName = value;
+                        });
+                      },
                     ),
                   ),
                 )

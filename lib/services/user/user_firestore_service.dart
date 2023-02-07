@@ -10,16 +10,16 @@ class UserService {
   CollectionReference usersCollection =
       FirebaseFirestore.instance.collection('users');
 
-  // Creating User Information (email, userName, userID)
+  // Creating User Information (email, userName, userID) - it works | checked
   Future<void> creatingUserInformation(userName) async {
-    await usersCollection.add({
+    await usersCollection.doc(userId).set({
       'user_id': userId,
       'user_name': userName,
       'email': userEmail,
     });
   }
 
-  // Fetch userInformation return bool value
+  // Fetch userInformation return bool value - it work | checked
   Future<bool> checkUserIsExistInDatabase(userId) async {
     bool checkUserIsExist = await usersCollection
         .doc(userId)
@@ -38,24 +38,17 @@ class UserService {
     }
   }
 
-  // Fetching userInformation return data:
-  Future<void> readUserInformation(userId) async {
-    await usersCollection
-        .where('user_id', isEqualTo: userId)
-        .get()
-        .then((QuerySnapshot querySnapshot) {
-      querySnapshot.docs.forEach((doc) {
-        print(doc['user_id']);
-        print(doc['@user_name']);
-        print(doc['email']);
-      });
+  // Fetch userName from usersCollection
+  Future<String> returnUserName(userId) async {
+    final userName = await usersCollection.doc(userId).get().then((value) {
+      return value.get('user_name').toString();
     });
+    return userName;
   }
 
-  Future<String> getUserName(userId) async {
-    DocumentSnapshot snap = await usersCollection.doc(userId).get();
-    String userName = snap['@user_name'];
-    return userName;
+  // Change userName in editProfile page - it works | checked
+  Future<void> changeUserName(userId, String newName) async {
+    await usersCollection.doc(userId).update({'user_name': newName});
   }
 }
 

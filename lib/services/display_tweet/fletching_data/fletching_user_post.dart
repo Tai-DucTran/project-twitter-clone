@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finalproject/services/tweet/models/profile_post_model.dart';
+import 'package:finalproject/services/display_tweet/models/profile_post_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +30,7 @@ class _FletchingUserPostsState extends State<FletchingUserPosts> {
                     return ProfilePostModel(
                       documentSnapshot: data,
                       creator: data['creator'],
-                      userName: data['user_name'],
+                      // userName: data['user_name'],
                       text: data['text'] ?? '',
                       timestamp: data['timestamp'] ?? 0,
                       id: data.id,

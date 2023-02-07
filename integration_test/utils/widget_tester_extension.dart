@@ -3,7 +3,7 @@ import 'package:finalproject/main.dart';
 import 'package:finalproject/views/profile/create_user_name_view.dart';
 import 'package:finalproject/views/profile/edit_profile_view.dart';
 import 'package:finalproject/views/profile/profile_view.dart';
-import 'package:finalproject/views/tweet/add_tweet.dart';
+import 'package:finalproject/views/add_tweet/add_tweet.dart';
 import 'package:finalproject/views/twitter_view.dart';
 import 'package:finalproject/views/user_account/login_view.dart';
 import 'package:finalproject/views/user_account/register_view.dart';
