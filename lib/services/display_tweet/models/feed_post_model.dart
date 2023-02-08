@@ -28,7 +28,7 @@ class _FeedPostModelState extends State<FeedPostModel> {
   @override
   Widget build(BuildContext context) {
     return Card(
-        margin: const EdgeInsets.only(left: 0, right: 5, top: 5, bottom: 10),
+        margin: const EdgeInsets.only(left: 0, right: 0, top: 5, bottom: 10),
         child: Column(
           children: <Widget>[
             ListTile(
@@ -37,20 +37,24 @@ class _FeedPostModelState extends State<FeedPostModel> {
                 children: const [
                   Icon(
                     Icons.supervised_user_circle_outlined,
-                    size: 50,
+                    size: 45,
                   ),
                 ],
               ),
               // title - User's Nam take only 10 letters
-              title: Row(children: [
-                Text(
-                  widget.userName,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+              title: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.userName,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-              ]),
+                ],
+              ),
+
               // subtitle - User's post
               minVerticalPadding: 10,
               subtitle: Text(
@@ -61,6 +65,7 @@ class _FeedPostModelState extends State<FeedPostModel> {
                 ),
               ),
             ),
+
             // Display
             Row(children: <Widget>[
               const Padding(
