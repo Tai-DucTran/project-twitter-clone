@@ -55,49 +55,35 @@ class _ProfilePostModelState extends State<ProfilePostModel> {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    children: [
-                      Text(
-                        // userName,
-                        userName.toString(),
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      // Create a space
-                    ],
+                  Text(
+                    userName.toString(),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  Column(
-                    children: [
-                      const Padding(
-                          padding: EdgeInsets.only(left: 150, right: 0)),
-                      // Popup Menu Button
-                      PopupMenuButton<MenuPost>(
-                        onSelected: (value) async {
-                          switch (value) {
-                            case MenuPost.delete:
-                              final shouldDelete =
-                                  await showDeleteDialog(context);
-                              if (shouldDelete) {
-                                await postService
-                                    .deletePost(widget.documentSnapshot);
-                              }
-                            // case MenuPost.edit:
+                  PopupMenuButton<MenuPost>(
+                    onSelected: (value) async {
+                      switch (value) {
+                        case MenuPost.delete:
+                          final shouldDelete = await showDeleteDialog(context);
+                          if (shouldDelete) {
+                            await postService
+                                .deletePost(widget.documentSnapshot);
                           }
-                        },
-                        itemBuilder: (context) {
-                          return const [
-                            // Create a Poppup MenuItem
-                            PopupMenuItem<MenuPost>(
-                              value: MenuPost.delete,
-                              child: Text('Delete'),
-                            ),
-                          ];
-                        },
-                      )
-                    ],
-                  ),
+                        // case MenuPost.edit:
+                      }
+                    },
+                    itemBuilder: (context) {
+                      return const [
+                        // Create a Poppup MenuItem
+                        PopupMenuItem<MenuPost>(
+                          value: MenuPost.delete,
+                          child: Text('Delete'),
+                        ),
+                      ];
+                    },
+                  )
                 ],
               ),
               // subtitle - User's post
