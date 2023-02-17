@@ -1,5 +1,5 @@
 import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/services/user/user_firestore_service.dart';
+import 'package:finalproject/services/firestore_user_service/user_firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

@@ -1,6 +1,6 @@
 // Create the main UI of Twitter
-import 'package:finalproject/services/auth/auth_service.dart';
-import 'package:finalproject/services/display_tweet/fletching_data/fletching_feed_posts.dart';
+import 'package:finalproject/services/firebase_auth_service/auth_service.dart';
+import 'package:finalproject/services/firestore_tweet_service/fletching_data/fletching_feed_posts.dart';
 import 'package:flutter/material.dart';
 import '../constants/routes.dart';
 

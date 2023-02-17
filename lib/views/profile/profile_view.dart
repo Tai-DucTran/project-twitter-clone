@@ -1,6 +1,6 @@
 import 'package:finalproject/constants/routes.dart';
 import 'package:flutter/material.dart';
-import '../../services/display_tweet/fletching_data/fletching_user_post.dart';
+import '../../services/firestore_tweet_service/fletching_data/fletching_user_post.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});

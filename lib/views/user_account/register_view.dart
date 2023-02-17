@@ -1,7 +1,7 @@
 //  RegisterView:
 import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/services/auth/auth_exceptions.dart';
-import 'package:finalproject/services/auth/auth_service.dart';
+import 'package:finalproject/services/firebase_auth_service/auth_exceptions.dart';
+import 'package:finalproject/services/firebase_auth_service/auth_service.dart';
 import 'package:finalproject/utilities/show_error_dialog.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer' as devtools show log;

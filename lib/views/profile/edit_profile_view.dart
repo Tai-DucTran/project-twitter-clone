@@ -1,5 +1,6 @@
-import 'package:finalproject/services/user/user_firestore_service.dart';
+import 'package:finalproject/services/firestore_user_service/user_firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -17,8 +18,8 @@ class _EditProfileState extends State<EditProfileView> {
   String newName = '';
   final UserService _userService = UserService();
   final userId = FirebaseAuth.instance.currentUser?.uid;
-
   final userName = FirebaseAuth.instance.currentUser?.displayName;
+  final userEmail = FirebaseAuth.instance.currentUser?.email;
 
   @override
   Widget build(BuildContext context) {
@@ -169,6 +170,34 @@ class _EditProfileState extends State<EditProfileView> {
                       "Upload Image",
                       style: TextStyle(color: Colors.black87),
                     ),
+                  ),
+                ),
+              ],
+            )
+          ]),
+        ),
+        Card(
+          margin: const EdgeInsets.only(top: 5, bottom: 5),
+          child: Column(children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  width: 150,
+                  height: 25,
+                  child: Text(
+                    'Email',
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 200,
+                  child: Text(
+                    userEmail.toString(),
+                    style: const TextStyle(fontSize: 14),
                   ),
                 ),
               ],

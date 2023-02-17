@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finalproject/services/user/user_firestore_service.dart';
+import 'package:finalproject/services/firestore_user_service/user_firestore_service.dart';
 import 'package:flutter/material.dart';
 
 class FeedPostModel extends StatefulWidget {
