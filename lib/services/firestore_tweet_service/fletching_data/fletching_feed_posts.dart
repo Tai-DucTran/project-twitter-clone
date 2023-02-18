@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finalproject/services/firestore_tweet_service/models/feed_post_model.dart';
-import 'package:finalproject/services/firestore_user_service/user_firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +11,6 @@ class FeedPosts extends StatefulWidget {
 }
 
 class _FeedPostsState extends State<FeedPosts> {
-  UserService _userService = UserService();
-
   @override
   Widget build(BuildContext context) {
     final userId = FirebaseAuth.instance.currentUser?.uid;
@@ -32,7 +29,6 @@ class _FeedPostsState extends State<FeedPosts> {
                     return FeedPostModel(
                       documentSnapshot: data,
                       creator: data['creator'],
-                      userName: data['user_name'],
                       text: data['text'] ?? '',
                       timestamp: data['timestamp'] ?? 0,
                       id: data.id,

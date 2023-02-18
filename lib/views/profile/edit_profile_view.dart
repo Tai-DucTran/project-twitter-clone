@@ -56,8 +56,7 @@ class _EditProfileState extends State<EditProfileView> {
                       twitterRoute,
                       (route) => false,
                     );
-                    _userService.changeUserName(userId, newName);
-                    print(userId);
+                    await _userService.changeUserName(userId, newName);
                     FirebaseAuth.instance.currentUser
                         ?.updateDisplayName(newName);
                   },

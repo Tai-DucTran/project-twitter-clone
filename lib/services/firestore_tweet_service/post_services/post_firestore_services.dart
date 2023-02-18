@@ -40,7 +40,7 @@ class PostService {
 
   // Preparing docIds with
   Future<void> returnDocIdForSingleUser(userId) async {
-    await FirebaseFirestore.instance
+    FirebaseFirestore.instance
         .collection('posts')
         .where('creator', isEqualTo: userId)
         .snapshots();
@@ -64,8 +64,11 @@ class PostService {
         .orderBy('timestamp', descending: true)
         .get()
         .then((QuerySnapshot querySnapshot) {
+      // ignore: avoid_function_literals_in_foreach_calls
       querySnapshot.docs.forEach((doc) {
+        // ignore: avoid_print
         print(doc['text']);
+        // ignore: avoid_print
         print(doc['timestamp']);
       });
     });

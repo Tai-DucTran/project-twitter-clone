@@ -2,9 +2,9 @@
 import 'package:finalproject/services/firebase_auth_service/auth_service.dart';
 import 'package:finalproject/services/firestore_tweet_service/fletching_data/fletching_feed_posts.dart';
 import 'package:flutter/material.dart';
-import '../constants/routes.dart';
+import '../../constants/routes.dart';
 
-import 'drawer/myheaderdrawer.dart';
+import '../drawer/myheaderdrawer.dart';
 
 class Twitter extends StatefulWidget {
   const Twitter({super.key});

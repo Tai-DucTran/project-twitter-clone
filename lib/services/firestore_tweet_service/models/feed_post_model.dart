@@ -1,11 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finalproject/services/firestore_user_service/user_firestore_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FeedPostModel extends StatefulWidget {
   final String id;
   final String creator;
-  final String userName;
   final String text;
   final DocumentSnapshot documentSnapshot;
   final Timestamp timestamp;
@@ -17,7 +16,6 @@ class FeedPostModel extends StatefulWidget {
     required this.documentSnapshot,
     required this.timestamp,
     required this.id,
-    required this.userName,
   });
 
   @override
@@ -25,6 +23,7 @@ class FeedPostModel extends StatefulWidget {
 }
 
 class _FeedPostModelState extends State<FeedPostModel> {
+  final userName = FirebaseAuth.instance.currentUser!.displayName;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -46,7 +45,7 @@ class _FeedPostModelState extends State<FeedPostModel> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.userName,
+                    userName.toString(),
                     style: const TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,

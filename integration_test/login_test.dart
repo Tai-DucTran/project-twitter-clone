@@ -1,4 +1,4 @@
-import 'package:finalproject/views/twitter_view.dart';
+import 'package:finalproject/views/twitter_view/twitter_view.dart';
 import 'package:finalproject/views/user_account/login_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
