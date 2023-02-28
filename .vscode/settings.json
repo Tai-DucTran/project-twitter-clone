@@ -1,3 +1,14 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/linux"
+    "cmake.sourceDirectory": "${workspaceFolder}/linux",
+
+    "dart.flutterSdkPaths": ["/Users/taitran/fvm"],
+    // Remove .fvm files from search
+    "search.exclude": {
+      "**/.fvm": true
+    },
+    // Remove from file watching
+    "files.watcherExclude": {
+      "**/.fvm": true
+    },
+    "dart.flutterSdkPath": "/Users/taitran/fvm/3.7.4"
 }
