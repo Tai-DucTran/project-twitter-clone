@@ -45,6 +45,7 @@ dependencies:
   equatable: ^2.0.5
   firebase_storage: ^11.0.10
   image_picker: ^0.8.6+1
+  fvm: ^2.4.1
 
 
 dev_dependencies:
