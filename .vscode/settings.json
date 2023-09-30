@@ -10,5 +10,5 @@
     "files.watcherExclude": {
       "**/.fvm": true
     },
-    "dart.flutterSdkPath": "/Users/taitran/fvm/3.7.4"
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
