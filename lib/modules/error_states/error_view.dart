@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+const double _imageWidth = 200.0;
+const double _imageHeight = 200.0;
+const Color _imageColor = Colors.black54;
+const Color _descriptionColor = Colors.black38;
+
 class ErrorView extends StatelessWidget {
   final String imagePath;
   final String descriptionError;
@@ -24,9 +29,10 @@ class ErrorView extends StatelessWidget {
           children: [
             Image.asset(
               imagePath,
-              width: 200,
-              height: 200,
+              width: _imageWidth,
+              height: _imageHeight,
               fit: BoxFit.fill,
+              color: _imageColor,
             ),
             const SizedBox(
               height: 8,
@@ -34,7 +40,7 @@ class ErrorView extends StatelessWidget {
             Text(
               descriptionError,
               style: textTheme.headlineSmall!.copyWith(
-                color: Colors.black38,
+                color: _descriptionColor,
               ),
               textAlign: TextAlign.center,
             )
