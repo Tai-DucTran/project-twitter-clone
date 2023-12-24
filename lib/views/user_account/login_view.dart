@@ -1,6 +1,3 @@
-// LoginView:
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:finalproject/constants/routes.dart';
 import 'package:finalproject/modules/auth/exceptions/auth_exceptions.dart';
 import 'package:finalproject/modules/auth/auth_service.dart';
@@ -77,53 +74,11 @@ class _LoginViewState extends State<LoginView> {
                 onPressed: () async {
                   final email = _email.text;
                   final password = _password.text;
-
-                  try {
-                    await AuthServiceController.firebase().logIn(
-                      email: email,
-                      password: password,
-                    );
-
-                    final user = AuthServiceController.firebase().currentUser;
-                    final userName =
-                        FirebaseAuth.instance.currentUser?.displayName;
-
-                    // user's email is verified
-                    if (user?.isEmailVerified ?? false) {
-                      if (userName != null) {
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                          twitterRoute,
-                          (route) => false,
-                        );
-                      } else {
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                          createUserNameRoute,
-                          (route) => false,
-                        );
-                      }
-                    } else {
-                      // user's email is NOT verified
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                        verifyEmailRoute,
-                        (route) => false,
-                      );
-                    }
-                  } on UserNotFoundAuthException {
-                    await showErrorDialog(
-                      context,
-                      'User not found',
-                    );
-                  } on WrongPasswordAuthException {
-                    await showErrorDialog(
-                      context,
-                      'Wrong credentials',
-                    );
-                  } on GenericAuthException {
-                    await showErrorDialog(
-                      context,
-                      'Authentication error',
-                    );
-                  }
+                  await executingLogin(
+                    email: email,
+                    password: password,
+                    context: context,
+                  );
                 },
                 child: const Text(
                   'Login',
@@ -145,5 +100,59 @@ class _LoginViewState extends State<LoginView> {
             ],
           )),
         ));
+  }
+}
+
+// TODO(Tai): Resolve issue build context across async gaps
+
+Future<void> executingLogin({
+  required String email,
+  required String password,
+  required BuildContext context,
+}) async {
+  try {
+    await AuthServiceController.firebase().logIn(
+      email: email,
+      password: password,
+    );
+
+    final user = AuthServiceController.firebase().currentUser;
+    final userName = FirebaseAuth.instance.currentUser?.displayName;
+
+    // user's email is verified
+    if (user?.isEmailVerified ?? false) {
+      if (userName != null) {
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          twitterRoute,
+          (route) => false,
+        );
+      } else {
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          createUserNameRoute,
+          (route) => false,
+        );
+      }
+    } else {
+      // user's email is NOT verified
+      Navigator.of(context).pushNamedAndRemoveUntil(
+        verifyEmailRoute,
+        (route) => false,
+      );
+    }
+  } on UserNotFoundAuthException {
+    await showErrorDialog(
+      context,
+      'User not found',
+    );
+  } on WrongPasswordAuthException {
+    await showErrorDialog(
+      context,
+      'Wrong credentials',
+    );
+  } on GenericAuthException {
+    await showErrorDialog(
+      context,
+      'Authentication error',
+    );
   }
 }

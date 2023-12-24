@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finalproject/modules/tweet/models/feed_post_model.dart';
+import 'package:finalproject/modules/error_states/error_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,10 @@ class _FeedPostsState extends State<FeedPosts> {
             .snapshots(),
         builder: (context, snapshot) {
           return !snapshot.hasData
-              ? const Center(child: CircularProgressIndicator())
+              ? const ErrorView(
+                  imagePath: 'assets/logos/no-document.png',
+                  descriptionError: 'Something went wrong',
+                )
               : ListView.builder(
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
