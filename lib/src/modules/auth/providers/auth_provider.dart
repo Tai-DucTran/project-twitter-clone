@@ -1,4 +1,4 @@
-import 'package:finalproject/modules/auth/auth_user.dart';
+import 'package:finalproject/src/modules/auth/auth_user.dart';
 
 abstract class AuthProvider {
   Future<void> initialize();

@@ -1,4 +1,4 @@
-import 'package:finalproject/constants/routes.dart';
+import 'package:finalproject/src/constants/routes.dart';
 import 'package:flutter/material.dart';
 import '../../modules/tweet/fletching_data/fletching_user_post.dart';
 

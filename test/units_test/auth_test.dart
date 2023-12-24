@@ -1,6 +1,6 @@
-import 'package:finalproject/modules/auth/exceptions/auth_exceptions.dart';
-import 'package:finalproject/modules/auth/providers/auth_provider.dart';
-import 'package:finalproject/modules/auth/auth_user.dart';
+import 'package:finalproject/src/modules/auth/exceptions/auth_exceptions.dart';
+import 'package:finalproject/src/modules/auth/providers/auth_provider.dart';
+import 'package:finalproject/src/modules/auth/auth_user.dart';
 import 'package:test/test.dart';
 
 void main() {

@@ -1,36 +1,38 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finalproject/modules/tweet/models/profile_post_model.dart';
+import 'package:finalproject/src/modules/tweet/models/feed_post_model.dart';
+import 'package:finalproject/src/modules/error_states/error_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class FletchingUserPosts extends StatefulWidget {
-  const FletchingUserPosts({super.key});
+class FeedPosts extends StatefulWidget {
+  const FeedPosts({super.key});
 
   @override
-  State<FletchingUserPosts> createState() => _FletchingUserPostsState();
+  State<FeedPosts> createState() => _FeedPostsState();
 }
 
-class _FletchingUserPostsState extends State<FletchingUserPosts> {
+class _FeedPostsState extends State<FeedPosts> {
   @override
   Widget build(BuildContext context) {
     final userId = FirebaseAuth.instance.currentUser?.uid;
     return StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
             .collection('posts')
-            .where('creator', isEqualTo: userId)
-            .orderBy('timestamp', descending: true)
+            .where('creator', isNotEqualTo: userId)
             .snapshots(),
         builder: (context, snapshot) {
           return !snapshot.hasData
-              ? const Center(child: CircularProgressIndicator())
+              ? const ErrorView(
+                  imagePath: 'assets/logos/no-document.png',
+                  descriptionError: 'Something went wrong',
+                )
               : ListView.builder(
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
                     DocumentSnapshot data = snapshot.data!.docs[index];
-                    return ProfilePostModel(
+                    return FeedPostModel(
                       documentSnapshot: data,
                       creator: data['creator'],
-                      // userName: data['user_name'],
                       text: data['text'] ?? '',
                       timestamp: data['timestamp'] ?? 0,
                       id: data.id,

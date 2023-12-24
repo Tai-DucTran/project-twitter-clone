@@ -1,7 +1,9 @@
-import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/modules/auth/exceptions/auth_exceptions.dart';
-import 'package:finalproject/modules/auth/auth_service.dart';
-import 'package:finalproject/utilities/show_error_dialog.dart';
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:finalproject/src/constants/routes.dart';
+import 'package:finalproject/src/modules/auth/exceptions/auth_exceptions.dart';
+import 'package:finalproject/src/modules/auth/auth_service.dart';
+import 'package:finalproject/src/utilities/show_error_dialog.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatefulWidget {

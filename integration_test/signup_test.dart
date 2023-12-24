@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:finalproject/views/user_account/login_view.dart';
-import 'package:finalproject/views/user_account/register_view.dart';
-import 'package:finalproject/views/user_account/verify_email_view.dart';
+import 'package:finalproject/src/views/user_account/login_view.dart';
+import 'package:finalproject/src/views/user_account/register_view.dart';
+import 'package:finalproject/src/views/user_account/verify_email_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mocktail/mocktail.dart';
@@ -149,7 +149,6 @@ class FirebaseAuth {
     return User(email, password);
   }
   // Mock FirebaseAuth -> current user
-
 }
 
 class User extends Equatable {
