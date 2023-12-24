@@ -1,5 +1,4 @@
 import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/modules/about_me/user_firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +11,6 @@ class CreateUserNameView extends StatefulWidget {
 
 class _CreateUserNameViewState extends State<CreateUserNameView> {
   String userName = '';
-  final UserService _userService = UserService();
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +46,6 @@ class _CreateUserNameViewState extends State<CreateUserNameView> {
                   FirebaseAuth.instance.currentUser
                       ?.updateDisplayName(userName);
                   // Creating userInformation in Firestore:
-                  _userService.creatingUserInformation(userName);
-
                   Navigator.of(context)
                       .pushNamedAndRemoveUntil(twitterRoute, (route) => false);
                 },

@@ -32,8 +32,8 @@ class _FeedPostModelState extends State<FeedPostModel> {
           children: <Widget>[
             ListTile(
               // leading - User's Avata
-              leading: Column(
-                children: const [
+              leading: const Column(
+                children: [
                   Icon(
                     Icons.supervised_user_circle_outlined,
                     size: 45,

@@ -14,10 +14,10 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized().framePolicy =
       LiveTestWidgetsFlutterBindingFramePolicy.fullyLive;
 
-  late MockFirebaseAuth _mockFirebaseAuth;
+  late MockFirebaseAuth mockFirebaseAuth;
 
   setUp(() async {
-    _mockFirebaseAuth = MockFirebaseAuth();
+    mockFirebaseAuth = MockFirebaseAuth();
     await Firebase.initializeApp();
   });
 
@@ -40,7 +40,7 @@ Then I get back to loginPage
 """, (WidgetTester tester) async {
         // Arrange:
         const testUser = User('taitran.deve@gmail.com', '1234abcd');
-        when(() => _mockFirebaseAuth.createUser(
+        when(() => mockFirebaseAuth.createUser(
                 'taitran.deve@gmail.com', '1234abcd'))
             .thenAnswer((invocation) async => testUser);
 
@@ -81,7 +81,7 @@ And I tap the registerButton
 Then I see an error message
 """,
         (WidgetTester tester) async {
-          when(() => _mockFirebaseAuth.createUser(
+          when(() => mockFirebaseAuth.createUser(
                   'tranductai141@gmail.com', '1234abcd'))
               .thenThrow(EmailAlreadyInUseAuthException);
 

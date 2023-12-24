@@ -22,7 +22,6 @@ class _AddTweetViewState extends State<AddTweetView> {
               children: [
                 Row(
                   children: [
-                    //Create the "Cancel" button
                     TextButton(
                       onPressed: () {
                         Navigator.pop(context);
@@ -35,7 +34,6 @@ class _AddTweetViewState extends State<AddTweetView> {
                         ),
                       ),
                     ),
-
                     Expanded(child: Container()),
                     TextButton(
                       onPressed: () {
@@ -44,18 +42,19 @@ class _AddTweetViewState extends State<AddTweetView> {
 
                         Navigator.of(context).pop();
                       },
-                      child: const Text(
+                      child: Text(
                         'Draft',
                         style: TextStyle(
                           fontSize: 15,
-                          color: Colors.blue,
+                          color: Colors.blue[400],
                         ),
                       ),
                     ),
-
                     ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStatePropertyAll(Colors.blue[400])),
                       onPressed: () async {
-                        // Creating Post : Tweet
                         _postService.creatingTweet(text);
 
                         Navigator.of(context).pop();
