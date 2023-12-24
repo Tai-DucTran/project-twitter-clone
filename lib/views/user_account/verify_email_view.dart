@@ -1,5 +1,5 @@
 import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/services/firebase_auth_service/auth_service.dart';
+import 'package:finalproject/modules/firebase_auth_service/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class VerifyEmailView extends StatefulWidget {

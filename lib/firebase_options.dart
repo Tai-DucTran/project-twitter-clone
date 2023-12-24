@@ -66,7 +66,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '302103377027',
     projectId: 'finaproject-twitter',
     storageBucket: 'finaproject-twitter.appspot.com',
-    iosClientId: '302103377027-ersljn3jj9phg8s5s418pov8mcf3c0rm.apps.googleusercontent.com',
+    iosClientId:
+        '302103377027-ersljn3jj9phg8s5s418pov8mcf3c0rm.apps.googleusercontent.com',
     iosBundleId: 'vn.glints.finalproject',
   );
 
@@ -76,7 +77,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '302103377027',
     projectId: 'finaproject-twitter',
     storageBucket: 'finaproject-twitter.appspot.com',
-    iosClientId: '302103377027-ersljn3jj9phg8s5s418pov8mcf3c0rm.apps.googleusercontent.com',
+    iosClientId:
+        '302103377027-ersljn3jj9phg8s5s418pov8mcf3c0rm.apps.googleusercontent.com',
     iosBundleId: 'vn.glints.finalproject',
   );
 }

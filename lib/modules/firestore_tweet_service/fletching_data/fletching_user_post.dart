@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finalproject/services/firestore_tweet_service/models/profile_post_model.dart';
+import 'package:finalproject/modules/firestore_tweet_service/models/profile_post_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

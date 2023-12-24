@@ -1,7 +1,6 @@
-
 import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/services/firebase_auth_service/auth_exceptions.dart';
-import 'package:finalproject/services/firebase_auth_service/auth_service.dart';
+import 'package:finalproject/modules/firebase_auth_service/auth_exceptions.dart';
+import 'package:finalproject/modules/firebase_auth_service/auth_service.dart';
 import 'package:finalproject/utilities/show_error_dialog.dart';
 import 'package:flutter/material.dart';
 

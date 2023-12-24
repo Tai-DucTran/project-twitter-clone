@@ -1,4 +1,4 @@
-import 'package:finalproject/services/firebase_auth_service/auth_user.dart';
+import 'package:finalproject/modules/firebase_auth_service/auth_user.dart';
 
 abstract class AuthProvider {
   Future<void> initialize();
@@ -13,6 +13,4 @@ abstract class AuthProvider {
   });
   Future<void> logOut();
   Future<void> sendEmailVerification();
-
-
 }

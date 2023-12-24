@@ -1,5 +1,5 @@
-import 'package:finalproject/services/firebase_auth_service/auth_provider.dart';
-import 'package:finalproject/services/firebase_auth_service/auth_user.dart';
+import 'package:finalproject/modules/firebase_auth_service/auth_provider.dart';
+import 'package:finalproject/modules/firebase_auth_service/auth_user.dart';
 
 import 'package:firebase_auth/firebase_auth.dart'
     show FirebaseAuth, FirebaseAuthException;
