@@ -1,13 +1,13 @@
 import 'package:finalproject/src/constants/routes.dart';
 import 'package:finalproject/main.dart';
-import 'package:finalproject/src/views/profile/create_user_name_view.dart';
-import 'package:finalproject/src/views/profile/edit_profile_view.dart';
-import 'package:finalproject/src/views/profile/profile_view.dart';
-import 'package:finalproject/src/views/add_tweet/add_tweet.dart';
-import 'package:finalproject/src/views/twitter_view/twitter_view.dart';
-import 'package:finalproject/src/views/user_account/login_view.dart';
-import 'package:finalproject/src/views/user_account/register_view.dart';
-import 'package:finalproject/src/views/user_account/verify_email_view.dart';
+import 'package:finalproject/src/modules/profile/create_user_name_view.dart';
+import 'package:finalproject/src/modules/profile/edit_profile_view.dart';
+import 'package:finalproject/src/modules/profile/profile_view.dart';
+import 'package:finalproject/src/modules/add_tweet/add_tweet.dart';
+import 'package:finalproject/src/modules/twitter_view/twitter_view.dart';
+import 'package:finalproject/src/modules/user_account/login_view.dart';
+import 'package:finalproject/src/modules/user_account/register_view.dart';
+import 'package:finalproject/src/modules/user_account/verify_email_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
