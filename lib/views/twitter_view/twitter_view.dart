@@ -25,6 +25,7 @@ class _TwitterState extends State<Twitter> {
           title: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
         ),
         floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.blue[400],
             onPressed: () {
               Navigator.of(context).pushNamed(addTweetRoute);
             },
