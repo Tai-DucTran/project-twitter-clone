@@ -2,7 +2,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/modules/auth/auth_exceptions.dart';
+import 'package:finalproject/modules/auth/exceptions/auth_exceptions.dart';
 import 'package:finalproject/modules/auth/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -79,12 +79,12 @@ class _LoginViewState extends State<LoginView> {
                   final password = _password.text;
 
                   try {
-                    await AuthService.firebase().logIn(
+                    await AuthServiceController.firebase().logIn(
                       email: email,
                       password: password,
                     );
 
-                    final user = AuthService.firebase().currentUser;
+                    final user = AuthServiceController.firebase().currentUser;
                     final userName =
                         FirebaseAuth.instance.currentUser?.displayName;
 

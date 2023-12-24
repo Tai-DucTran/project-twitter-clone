@@ -24,7 +24,6 @@ class _TwitterState extends State<Twitter> {
           elevation: 0.5,
           title: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
         ),
-        // Adding-Tweet Button
         floatingActionButton: FloatingActionButton(
             onPressed: () {
               Navigator.of(context).pushNamed(addTweetRoute);
@@ -34,7 +33,6 @@ class _TwitterState extends State<Twitter> {
           padding: const EdgeInsets.only(left: 20, right: 10, top: 15),
           child: const FeedPosts(),
         ),
-        // Create the drawer
         drawer: Drawer(
           width: 350,
           backgroundColor: Colors.white,
@@ -44,8 +42,8 @@ class _TwitterState extends State<Twitter> {
                 child: MyHeaderDrawer(),
               ),
               ListTile(
-                title: Row(
-                  children: const [
+                title: const Row(
+                  children: [
                     Icon(
                       Icons.account_circle_rounded,
                       size: 40,
@@ -69,8 +67,8 @@ class _TwitterState extends State<Twitter> {
                 height: 8,
               ),
               ListTile(
-                title: Row(
-                  children: const [
+                title: const Row(
+                  children: [
                     Icon(
                       Icons.admin_panel_settings_outlined,
                       size: 40,
@@ -94,9 +92,9 @@ class _TwitterState extends State<Twitter> {
                 height: 8,
               ),
               ListTile(
-                  title: Row(
-                    key: const Key('logout-button-in-drawer'),
-                    children: const [
+                  title: const Row(
+                    key: Key('logout-button-in-drawer'),
+                    children: [
                       Icon(
                         Icons.logout_outlined,
                         size: 40,
@@ -112,12 +110,7 @@ class _TwitterState extends State<Twitter> {
                     ],
                   ),
                   onTap: () async {
-                    final shouldLogout = await showLogOutDialog(context);
-                    if (shouldLogout) {
-                      await AuthService.firebase().logOut();
-                      Navigator.of(context)
-                          .pushNamedAndRemoveUntil(loginRoute, (_) => false);
-                    }
+                    await showLogOutDialog(context);
                   }),
             ],
           ),
@@ -125,9 +118,7 @@ class _TwitterState extends State<Twitter> {
   }
 }
 
-// Create the logout dialog:
-// AlertDiaglog => create dialog
-Future<bool> showLogOutDialog(BuildContext context) {
+Future<void> showLogOutDialog(BuildContext context) {
   return showDialog<bool>(
     context: context,
     builder: (context) {
@@ -138,13 +129,16 @@ Future<bool> showLogOutDialog(BuildContext context) {
         actions: [
           TextButton(
             onPressed: () {
-              Navigator.of(context).pop(false);
+              Navigator.of(context).pop();
             },
             child: const Text('Cancel'),
           ),
           TextButton(
-            onPressed: () {
-              Navigator.of(context).pop(true);
+            onPressed: () async {
+              Navigator.of(context).pop();
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil(loginRoute, (_) => false);
+              await AuthServiceController.firebase().logOut();
             },
             child: const Text('Log out'),
           ),

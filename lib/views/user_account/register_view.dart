@@ -1,5 +1,5 @@
 import 'package:finalproject/constants/routes.dart';
-import 'package:finalproject/modules/auth/auth_exceptions.dart';
+import 'package:finalproject/modules/auth/exceptions/auth_exceptions.dart';
 import 'package:finalproject/modules/auth/auth_service.dart';
 import 'package:finalproject/utilities/show_error_dialog.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +75,7 @@ class _RegisterViewState extends State<RegisterView> {
                     final email = _email.text;
                     final password = _password.text;
                     try {
-                      await AuthService.firebase().createUser(
+                      await AuthServiceController.firebase().createUser(
                         email: email,
                         password: password,
                       );
