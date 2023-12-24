@@ -1,6 +1,6 @@
-import 'package:finalproject/modules/firebase_auth_service/auth_provider.dart';
-import 'package:finalproject/modules/firebase_auth_service/auth_user.dart';
-import 'package:finalproject/modules/firebase_auth_service/firebase_auth_provider.dart';
+import 'package:finalproject/modules/auth/auth_provider.dart';
+import 'package:finalproject/modules/auth/auth_user.dart';
+import 'package:finalproject/modules/auth/firebase_auth_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService implements AuthProvider {

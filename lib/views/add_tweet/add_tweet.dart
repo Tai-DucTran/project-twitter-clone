@@ -1,4 +1,4 @@
-import 'package:finalproject/modules/firestore_tweet_service/post_services/post_firestore_services.dart';
+import 'package:finalproject/modules/tweet/post_services/post_firestore_services.dart';
 import 'package:flutter/material.dart';
 
 class AddTweetView extends StatefulWidget {

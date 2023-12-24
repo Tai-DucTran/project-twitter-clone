@@ -1,6 +1,6 @@
-import 'package:finalproject/modules/firebase_auth_service/auth_exceptions.dart';
-import 'package:finalproject/modules/firebase_auth_service/auth_provider.dart';
-import 'package:finalproject/modules/firebase_auth_service/auth_user.dart';
+import 'package:finalproject/modules/auth/auth_exceptions.dart';
+import 'package:finalproject/modules/auth/auth_provider.dart';
+import 'package:finalproject/modules/auth/auth_user.dart';
 import 'package:test/test.dart';
 
 void main() {

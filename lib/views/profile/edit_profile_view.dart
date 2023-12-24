@@ -1,4 +1,4 @@
-import 'package:finalproject/modules/firestore_user_service/user_firestore_service.dart';
+import 'package:finalproject/modules/about_me/user_firestore_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';

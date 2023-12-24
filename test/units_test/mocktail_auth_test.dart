@@ -1,5 +1,5 @@
-import 'package:finalproject/modules/firebase_auth_service/auth_exceptions.dart';
-import 'package:finalproject/modules/firebase_auth_service/firebase_auth_provider.dart';
+import 'package:finalproject/modules/auth/auth_exceptions.dart';
+import 'package:finalproject/modules/auth/firebase_auth_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
