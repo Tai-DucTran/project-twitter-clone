@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'dart:developer' as deve show log;
 
 class UserService {
   final userId = FirebaseAuth.instance.currentUser?.uid;
@@ -24,8 +25,8 @@ class UserService {
     bool checkUserIsExist = await usersCollection
         .doc(userId)
         .get()
-        .then((DocumentSnapshot documentSnapshot) {
-      if (documentSnapshot.exists) {
+        .then((DocumentSnapshot snapshot) {
+      if (snapshot.exists) {
         return true;
       } else {
         return false;
@@ -54,5 +55,5 @@ class UserService {
 
 void main() {
   final userName = FirebaseAuth.instance.currentUser?.displayName;
-  print(userName);
+  deve.log(userName.toString());
 }
