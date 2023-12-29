@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:finalproject/src/modules/user_account/login_view.dart';
-import 'package:finalproject/src/modules/user_account/register_view.dart';
-import 'package:finalproject/src/modules/user_account/verify_email_view.dart';
+import 'package:finalproject/src/modules/login/widget/login_view.dart';
+import 'package:finalproject/src/modules/register/register_view.dart';
+import 'package:finalproject/src/modules/register/verify_email_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mocktail/mocktail.dart';

@@ -6,7 +6,7 @@ import 'package:finalproject/src/modules/auth/controllers/auth_service_controlle
 import 'package:finalproject/src/modules/login/widget/atoms/login_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../../utilities/show_error_dialog.dart';
+import '../../../utilities/show_error_dialog.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -36,16 +36,16 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          title: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
-        ),
-        body: Container(
-          padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
-          child: Form(
-              child: Column(
+        title: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
+      ),
+      body: Container(
+        padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
+        child: Form(
+          child: Column(
             children: [
               const Text(
                 "See what's happending in the world right now.",
@@ -80,7 +80,6 @@ class _LoginViewState extends State<LoginView> {
                   style: TextStyle(fontSize: 16),
                 ),
               ),
-              // Register Button
               TextButton(
                   onPressed: () {
                     Navigator.of(context).pushNamedAndRemoveUntil(
@@ -93,8 +92,10 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ))
             ],
-          )),
-        ));
+          ),
+        ),
+      ),
+    );
   }
 }
 
