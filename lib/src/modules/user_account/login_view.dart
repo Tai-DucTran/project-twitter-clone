@@ -2,7 +2,8 @@
 
 import 'package:finalproject/src/constants/routes.dart';
 import 'package:finalproject/src/modules/auth/exceptions/auth_exceptions.dart';
-import 'package:finalproject/src/modules/auth/auth_service.dart';
+import 'package:finalproject/src/modules/auth/controllers/auth_service_controller.dart';
+import 'package:finalproject/src/modules/login/widget/atoms/login_text_field.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../utilities/show_error_dialog.dart';
@@ -54,23 +55,15 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               const SizedBox(height: 10),
-              TextField(
+              LoginTextField(
                 controller: _email,
-                key: const Key('login-email-textfield'),
-                enableSuggestions: false,
-                autocorrect: false,
                 keyboardType: TextInputType.emailAddress,
-                decoration:
-                    const InputDecoration(hintText: 'Enter your email here'),
+                hintText: 'Enter your email here',
               ),
-              TextField(
+              LoginTextField(
                 controller: _password,
-                key: const Key('login-password-textfield'),
                 obscureText: true,
-                enableSuggestions: false,
-                autocorrect: false,
-                decoration:
-                    const InputDecoration(hintText: 'Enter your password here'),
+                hintText: 'Enter your password here',
               ),
               TextButton(
                 onPressed: () async {

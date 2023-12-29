@@ -1,7 +1,8 @@
-import 'package:finalproject/src/modules/auth/providers/auth_provider.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebaseauth;
+
 import 'package:finalproject/src/modules/auth/auth_user.dart';
+import 'package:finalproject/src/modules/auth/providers/auth_provider.dart';
 import 'package:finalproject/src/modules/auth/providers/firebase_auth_provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthServiceController implements AuthProvider {
   final AuthProvider provider;
@@ -9,7 +10,7 @@ class AuthServiceController implements AuthProvider {
 
   factory AuthServiceController.firebase() => AuthServiceController(
         FirebaseAuthProvider(
-          FirebaseAuth.instance,
+          firebaseauth.FirebaseAuth.instance,
         ),
       );
 
@@ -41,4 +42,8 @@ class AuthServiceController implements AuthProvider {
 
   @override
   Future<void> sendEmailVerification() => provider.sendEmailVerification();
+
+  @override
+  Future<void> createOrUpdateUserName(String newUserName) =>
+      provider.createOrUpdateUserName(newUserName);
 }

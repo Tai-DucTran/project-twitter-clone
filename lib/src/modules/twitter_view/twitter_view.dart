@@ -1,4 +1,4 @@
-import 'package:finalproject/src/modules/auth/auth_service.dart';
+import 'package:finalproject/src/modules/auth/controllers/auth_service_controller.dart';
 import 'package:finalproject/src/modules/profile_drawer/organism/drawer_profile.dart';
 import 'package:finalproject/src/modules/tweet/fletching_data/fletching_feed_posts.dart';
 import 'package:flutter/material.dart';

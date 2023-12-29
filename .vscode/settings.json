@@ -1,14 +1,6 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/linux",
-
-    "dart.flutterSdkPaths": ["/Users/taitran/fvm"],
-    // Remove .fvm files from search
-    "search.exclude": {
-      "**/.fvm": true
-    },
-    // Remove from file watching
-    "files.watcherExclude": {
-      "**/.fvm": true
-    },
-    "java.configuration.updateBuildConfiguration": "interactive"
+  "cmake.sourceDirectory": "${workspaceFolder}/linux",
+  "dart.flutterSdkPaths": ["/Users/taiductran/fvm/versions"],
+  "java.configuration.updateBuildConfiguration": "interactive",
+  "dart.flutterSdkPath": "~/fvm/versions/3.16.5"
 }

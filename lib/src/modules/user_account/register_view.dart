@@ -2,7 +2,7 @@
 
 import 'package:finalproject/src/constants/routes.dart';
 import 'package:finalproject/src/modules/auth/exceptions/auth_exceptions.dart';
-import 'package:finalproject/src/modules/auth/auth_service.dart';
+import 'package:finalproject/src/modules/auth/controllers/auth_service_controller.dart';
 import 'package:finalproject/src/utilities/show_error_dialog.dart';
 import 'package:flutter/material.dart';
 

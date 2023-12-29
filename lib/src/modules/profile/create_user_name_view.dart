@@ -1,5 +1,5 @@
 import 'package:finalproject/src/constants/routes.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:finalproject/src/modules/auth/controllers/auth_service_controller.dart';
 import 'package:flutter/material.dart';
 
 class CreateUserNameView extends StatefulWidget {
@@ -10,7 +10,7 @@ class CreateUserNameView extends StatefulWidget {
 }
 
 class _CreateUserNameViewState extends State<CreateUserNameView> {
-  String userName = '';
+  String newUserName = '';
 
   @override
   Widget build(BuildContext context) {
@@ -35,19 +35,17 @@ class _CreateUserNameViewState extends State<CreateUserNameView> {
                       hintText: 'Enter your user name here'),
                   onChanged: (value) {
                     setState(() {
-                      userName = value;
+                      newUserName = value;
                     });
                   },
                 ),
               ),
               TextButton(
                 onPressed: () async {
-                  // Creating userName in FirebaseAuth
-                  FirebaseAuth.instance.currentUser
-                      ?.updateDisplayName(userName);
-                  // Creating userInformation in Firestore:
                   Navigator.of(context)
                       .pushNamedAndRemoveUntil(twitterRoute, (route) => false);
+                  await AuthServiceController.firebase()
+                      .createOrUpdateUserName(newUserName);
                 },
                 child: const Text(
                   'Create your user name',

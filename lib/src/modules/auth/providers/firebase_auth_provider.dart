@@ -20,6 +20,16 @@ class FirebaseAuthProvider implements AuthProvider {
   }
 
   @override
+  AuthUser? get currentUser {
+    final user = _auth.currentUser;
+    if (user != null) {
+      return AuthUser.fromFirebase(user);
+    } else {
+      return null;
+    }
+  }
+
+  @override
   Future<AuthUser> createUser({
     required String email,
     required String password,
@@ -47,16 +57,6 @@ class FirebaseAuthProvider implements AuthProvider {
       }
     } catch (_) {
       throw GenericAuthException();
-    }
-  }
-
-  @override
-  AuthUser? get currentUser {
-    final user = _auth.currentUser;
-    if (user != null) {
-      return AuthUser.fromFirebase(user);
-    } else {
-      return null;
     }
   }
 
@@ -106,6 +106,16 @@ class FirebaseAuthProvider implements AuthProvider {
       await user.sendEmailVerification();
     } else {
       throw UserNotLoggedInAuthException();
+    }
+  }
+
+  @override
+  Future<void> createOrUpdateUserName(String newUserName) async {
+    final user = currentUser;
+    if (user != null) {
+      await _auth.currentUser?.updateDisplayName(newUserName);
+    } else {
+      throw UserNotFoundAuthException();
     }
   }
 }
