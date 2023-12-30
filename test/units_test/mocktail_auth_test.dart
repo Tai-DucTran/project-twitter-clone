@@ -50,8 +50,6 @@ void main() {
     test(
       "create User With Email and Password",
       () async {
-        // Arrange
-        final provider = FirebaseAuthProvider(mockFirebaseAuth);
         String email = 'test@gmail.com';
         // Action:
         when(() => mockFirebaseAuth.createUserWithEmailAndPassword(

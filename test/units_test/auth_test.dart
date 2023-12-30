@@ -136,4 +136,10 @@ class MockAuthProvider implements AuthProvider {
     const newUser = AuthUser(isEmailVerified: true);
     _user = newUser;
   }
+
+  @override
+  Future<void> createOrUpdateUserName(String newUserName) {
+    // TODO: implement createOrUpdateUserName
+    throw UnimplementedError();
+  }
 }
