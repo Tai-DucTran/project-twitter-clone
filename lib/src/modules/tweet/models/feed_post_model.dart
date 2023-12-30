@@ -1,3 +1,4 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +79,7 @@ class _FeedPostModelState extends State<FeedPostModel> {
                     text: widget.timestamp.toDate().toString()),
               )),
             ]),
-            const SizedBox(height: 20)
+            Spacing.sp20,
           ],
         ));
   }

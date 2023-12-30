@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:aries_designs/aries_designs.dart';
 import 'package:finalproject/src/constants/routes.dart';
 import 'package:finalproject/src/modules/auth/exceptions/auth_exceptions.dart';
 import 'package:finalproject/src/modules/auth/controllers/auth_service_controller.dart';
@@ -54,7 +55,7 @@ class _LoginViewState extends State<LoginView> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 10),
+              Spacing.sp12,
               LoginTextField(
                 controller: _email,
                 keyboardType: TextInputType.emailAddress,

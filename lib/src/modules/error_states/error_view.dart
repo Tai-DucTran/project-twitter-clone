@@ -1,3 +1,4 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:flutter/material.dart';
 
 const double _imageWidth = 200.0;
@@ -34,9 +35,7 @@ class ErrorView extends StatelessWidget {
               fit: BoxFit.fill,
               color: _imageColor,
             ),
-            const SizedBox(
-              height: 8,
-            ),
+            Spacing.sp8,
             Text(
               descriptionError,
               style: textTheme.headlineSmall!.copyWith(
