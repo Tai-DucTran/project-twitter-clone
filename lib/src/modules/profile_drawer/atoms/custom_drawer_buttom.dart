@@ -1,3 +1,4 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawerButtom extends StatelessWidget {
@@ -24,9 +25,7 @@ class CustomDrawerButtom extends StatelessWidget {
                 size: 40,
                 color: Colors.black54,
               ),
-              const SizedBox(
-                width: 8,
-              ),
+              Spacing.sp8,
               Text(
                 buttomText,
                 style: const TextStyle(
@@ -38,7 +37,7 @@ class CustomDrawerButtom extends StatelessWidget {
           ),
           onTap: onButtomClick,
         ),
-        const SizedBox(height: 12),
+        Spacing.sp12,
       ],
     );
   }

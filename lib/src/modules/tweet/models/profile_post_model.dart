@@ -1,3 +1,4 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:finalproject/src/modules/tweet/post_services/post_firestore_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -109,7 +110,7 @@ class _ProfilePostModelState extends State<ProfilePostModel> {
                     text: widget.timestamp.toDate().toString()),
               )),
             ]),
-            const SizedBox(height: 20)
+            Spacing.sp20,
           ],
         ));
   }

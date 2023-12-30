@@ -1,3 +1,4 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:finalproject/src/modules/tweet/post_services/post_firestore_services.dart';
 import 'package:flutter/material.dart';
 
@@ -69,9 +70,7 @@ class _AddTweetViewState extends State<AddTweetView> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
+                Spacing.sp20,
                 Form(
                     child: TextFormField(
                   autocorrect: false,
