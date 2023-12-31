@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:finalproject/src/modules/login/widget/login_view.dart';
-import 'package:finalproject/src/modules/register/register_view.dart';
-import 'package:finalproject/src/modules/register/verify_email_view.dart';
+import 'package:finalproject/src/modules/sign_in/widget/sign_in_view.dart';
+import 'package:finalproject/src/modules/sign_up/sign_up_view.dart';
+import 'package:finalproject/src/modules/sign_up/verify_email_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mocktail/mocktail.dart';
@@ -46,15 +46,15 @@ Then I get back to loginPage
 
         await tester.pumpApp();
         await tester.pumpAndSettle();
-        expect(find.byType(LoginView), findsOneWidget);
+        expect(find.byType(SignInView), findsOneWidget);
         expect(find.byType(TextField), findsWidgets);
         // Action - move to Register Page:
         final registerPage = find.text('Not registered yet? Register here!');
         await tester.tap(registerPage);
         await tester.pumpAndSettle();
 
-        expect(find.byType(LoginView), findsNothing);
-        expect(find.byType(RegisterView), findsOneWidget);
+        expect(find.byType(SignInView), findsNothing);
+        expect(find.byType(SignUpView), findsOneWidget);
 
         // Action - fill the Register Form:
         await _fillRegisterForm(
@@ -93,16 +93,16 @@ Then I see an error message
           final loginButton = find.text('Login here');
           await tester.tap(loginButton);
           await tester.pumpAndSettle(const Duration(seconds: 1));
-          expect(find.byType(RegisterView), findsNothing);
-          expect(find.byType(LoginView), findsOneWidget);
+          expect(find.byType(SignUpView), findsNothing);
+          expect(find.byType(SignInView), findsOneWidget);
 
           // Action - move to Register Page:
           final registerPage = find.text('Not registered yet? Register here!');
           await tester.tap(registerPage);
           await tester.pumpAndSettle();
 
-          expect(find.byType(LoginView), findsNothing);
-          expect(find.byType(RegisterView), findsOneWidget);
+          expect(find.byType(SignInView), findsNothing);
+          expect(find.byType(SignUpView), findsOneWidget);
 
           // Action - fill the Register Form:
           await _fillRegisterForm(

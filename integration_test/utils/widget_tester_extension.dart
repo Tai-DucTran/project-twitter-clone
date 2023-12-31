@@ -1,13 +1,13 @@
 import 'package:finalproject/src/constants/routes.dart';
 import 'package:finalproject/main.dart';
-import 'package:finalproject/src/modules/register/create_user_name_view.dart';
+import 'package:finalproject/src/modules/sign_up/create_user_name_view.dart';
 import 'package:finalproject/src/modules/profile/edit_profile_view.dart';
 import 'package:finalproject/src/modules/profile/profile_view.dart';
 import 'package:finalproject/src/modules/add_tweet/add_tweet.dart';
 import 'package:finalproject/src/modules/twitter_view/twitter_view.dart';
-import 'package:finalproject/src/modules/login/widget/login_view.dart';
-import 'package:finalproject/src/modules/register/register_view.dart';
-import 'package:finalproject/src/modules/register/verify_email_view.dart';
+import 'package:finalproject/src/modules/sign_in/widget/sign_in_view.dart';
+import 'package:finalproject/src/modules/sign_up/sign_up_view.dart';
+import 'package:finalproject/src/modules/sign_up/verify_email_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -45,8 +45,8 @@ class _CreateWidgetUnderTestState extends State<CreateWidgetUnderTest> {
       ),
       home: const HomePage(),
       routes: {
-        loginRoute: (context) => const LoginView(),
-        registerRoute: (context) => const RegisterView(),
+        loginRoute: (context) => const SignInView(),
+        registerRoute: (context) => const SignUpView(),
         twitterRoute: (context) => const Twitter(),
         verifyEmailRoute: (context) => const VerifyEmailView(),
         addTweetRoute: (context) => const AddTweetView(),
