@@ -11,9 +11,14 @@ _$UserImpl _$$UserImplFromJson(Map<String, dynamic> json) => _$UserImpl(
       email: json['email'] as String,
       userName: json['userName'] as String,
       phoneNumber: json['phoneNumber'] as String,
-      imageUrl: json['imageUrl'] as String,
-      coverUrl: json['coverUrl'] as String,
-      birthOfDate: DateTime.parse(json['birthOfDate'] as String),
+      isCreator: json['isCreator'] as bool? ?? false,
+      gender: json['gender'] as String?,
+      profilePic: json['profilePic'] as String?,
+      coverPic: json['coverPic'] as String?,
+      birthOfDate: json['birthOfDate'] == null
+          ? null
+          : DateTime.parse(json['birthOfDate'] as String),
+      intro: json['intro'] as String?,
     );
 
 Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
@@ -22,7 +27,10 @@ Map<String, dynamic> _$$UserImplToJson(_$UserImpl instance) =>
       'email': instance.email,
       'userName': instance.userName,
       'phoneNumber': instance.phoneNumber,
-      'imageUrl': instance.imageUrl,
-      'coverUrl': instance.coverUrl,
-      'birthOfDate': instance.birthOfDate.toIso8601String(),
+      'isCreator': instance.isCreator,
+      'gender': instance.gender,
+      'profilePic': instance.profilePic,
+      'coverPic': instance.coverPic,
+      'birthOfDate': instance.birthOfDate?.toIso8601String(),
+      'intro': instance.intro,
     };

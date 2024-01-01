@@ -14,33 +14,19 @@ class _ProfileSectionState extends State<ProfileSection> {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Container(
-          height: 55,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.lightBlue,
+        const CircleAvatar(
+          backgroundImage: NetworkImage("https://robohash.org/\$15?set=set2"),
+          radius: 30,
+        ),
+        Text(
+          userName.toString(),
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        Expanded(
-          child: Container(
-            padding: const EdgeInsets.only(top: 10),
-            child: Column(
-              textDirection: TextDirection.ltr,
-              children: [
-                Text(
-                  userName.toString(),
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                Text("@${userName.toString()}"),
-              ],
-            ),
-          ),
-        )
+        Text("@${userName.toString()}"),
       ],
     );
   }

@@ -10,9 +10,12 @@ class User with _$User {
     required String email,
     required String userName,
     required String phoneNumber,
-    required String imageUrl,
-    required String coverUrl,
-    required DateTime birthOfDate,
+    @Default(false) bool isCreator,
+    String? gender,
+    String? profilePic,
+    String? coverPic,
+    DateTime? birthOfDate,
+    String? intro,
   }) = _User;
 
   factory User.fromJson(Map<String, Object?> json) => _$UserFromJson(json);

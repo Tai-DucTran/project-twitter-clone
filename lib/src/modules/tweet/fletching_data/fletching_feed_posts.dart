@@ -1,8 +1,9 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:finalproject/src/modules/tweet/models/feed_post_model.dart';
-import 'package:finalproject/src/modules/error_states/error_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'package:finalproject/src/modules/tweet/models/feed_post_model.dart';
 
 class FeedPosts extends StatefulWidget {
   const FeedPosts({super.key});
