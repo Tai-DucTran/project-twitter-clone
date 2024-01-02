@@ -11,36 +11,49 @@ class DrawerProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       width: 350,
-      child: ListView(
-        children: <Widget>[
-          const DrawerHeader(
-            child: ProfileSection(),
-          ),
-          CustomDrawerButtom(
-            icon: Icons.account_circle_rounded,
-            buttomText: 'Profile',
-            onButtomClick: () {
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil(profileRoute, (route) => false);
-            },
-          ),
-          CustomDrawerButtom(
-            icon: Icons.admin_panel_settings_outlined,
-            buttomText: 'Edit Profile Testing',
-            onButtomClick: () {
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil(editProfileRoute, (route) => false);
-            },
-          ),
-          CustomDrawerButtom(
-            icon: Icons.logout_outlined,
-            buttomText: 'Logout',
-            onButtomClick: () async {
-              Navigator.of(context).pop();
-              await showLogOutDialog(context);
-            },
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20),
+        child: ListView(
+          children: <Widget>[
+            const DrawerHeader(
+              child: ProfileSection(),
+            ),
+            CustomDrawerButtom(
+              icon: Icons.account_circle_rounded,
+              buttomText: 'Profile',
+              onButtomClick: () {
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil(profileRoute, (route) => false);
+              },
+            ),
+            CustomDrawerButtom(
+              icon: Icons.admin_panel_settings_outlined,
+              buttomText: 'Edit Profile Testing',
+              onButtomClick: () {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    editProfileRoute, (route) => false);
+              },
+            ),
+            CustomDrawerButtom(
+              icon: Icons.bookmark_border_outlined,
+              buttomText: 'Bookmarks',
+              onButtomClick: () async {},
+            ),
+            CustomDrawerButtom(
+              icon: Icons.edit_document,
+              buttomText: 'Lists',
+              onButtomClick: () async {},
+            ),
+            CustomDrawerButtom(
+              icon: Icons.logout_outlined,
+              buttomText: 'Logout',
+              onButtomClick: () async {
+                Navigator.of(context).pop();
+                await showLogOutDialog(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
