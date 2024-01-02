@@ -20,7 +20,10 @@ class _TwitterState extends State<Twitter> {
         iconTheme: const IconThemeData(color: Colors.blue),
         backgroundColor: Colors.white,
         elevation: 0.5,
-        title: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
+        title: Image.asset(
+          'assets/images/logo.png',
+          fit: BoxFit.cover,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blue[400],
