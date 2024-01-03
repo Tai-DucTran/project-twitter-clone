@@ -14,14 +14,14 @@ class _ProfileViewState extends State<ProfileView> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 120,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-          padding: const EdgeInsets.only(bottom: 20),
+          padding: const EdgeInsets.only(bottom: 5),
           icon: const Icon(
             Icons.arrow_back,
             color: Colors.white,
-            size: 27,
+            size: 26,
           ),
           onPressed: () {
             Navigator.of(context).pushNamedAndRemoveUntil(
@@ -32,11 +32,14 @@ class _ProfileViewState extends State<ProfileView> {
         ),
         actions: [
           IconButton(
-            padding: const EdgeInsets.only(bottom: 20, right: 20),
+            padding: const EdgeInsets.only(
+              bottom: 5,
+              right: 20,
+            ),
             icon: const Icon(
               Icons.search,
               color: Colors.white,
-              size: 27,
+              size: 26,
             ),
             onPressed: () {},
           ),
