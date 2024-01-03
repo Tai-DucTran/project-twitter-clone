@@ -1,7 +1,7 @@
 import 'package:finalproject/src/constants/routes.dart';
 import 'package:flutter/material.dart';
 
-import 'widgets/molecules/circle_avatar.dart';
+import 'widgets/molecules/circle_avatar_in_profile.dart';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -65,6 +65,7 @@ class _ProfileViewState extends State<ProfileView> {
           const CircleAvatarInProfile(
             imageUrl: "https://robohash.org/\$15?set=set2",
             isDartModeOn: false,
+            radius: 45.0,
           ),
         ],
       ),

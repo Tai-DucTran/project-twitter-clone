@@ -3,14 +3,15 @@ import 'package:flutter/material.dart';
 class CircleAvatarInProfile extends StatelessWidget {
   final String imageUrl;
   final bool isDartModeOn;
+  final double radius;
   const CircleAvatarInProfile({
     super.key,
     required this.imageUrl,
     required this.isDartModeOn,
+    required this.radius,
   });
 
   static const double ratio = 9 / 4;
-  static const double avatarRadius = 50.0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +19,8 @@ class CircleAvatarInProfile extends StatelessWidget {
       alignment: Alignment.topCenter,
       children: [
         Container(
-          width: avatarRadius * ratio,
-          height: avatarRadius * ratio,
+          width: radius * ratio,
+          height: radius * ratio,
           transform: Matrix4.translationValues(
             -140.0,
             -35.0,
@@ -40,7 +41,7 @@ class CircleAvatarInProfile extends StatelessWidget {
             backgroundImage: NetworkImage(
               imageUrl,
             ),
-            radius: avatarRadius,
+            radius: radius,
           ),
         ),
       ],
