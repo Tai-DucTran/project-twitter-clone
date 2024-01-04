@@ -1,7 +1,5 @@
-import 'package:finalproject/src/modules/profile/widgets/molecules/cover_user_section.dart';
+import 'package:finalproject/src/modules/profile/widgets/molecules/molecules.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/molecules/circle_avatar_in_profile.dart';
 
 const String _coverPicUrl =
     'https://e0.pxfuel.com/wallpapers/691/707/desktop-wallpaper-morgan-codes-minimal-minimalist-code.jpg';
@@ -20,13 +18,11 @@ class _ProfileViewState extends State<ProfileView> {
       backgroundColor: Colors.white,
       body: ListView(
         children: const [
-          CoverUserSection(
+          CoverProfileSection(
             coverPicUrl: _coverPicUrl,
           ),
-          CircleAvatarInProfile(
+          AvatarAndEditProfileSection(
             imageUrl: "https://robohash.org/\$15?set=set2",
-            radius: 45.0,
-            hasBackgroundBehind: true,
           ),
         ],
       ),
