@@ -1,3 +1,4 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:finalproject/src/constants/routes.dart';
 import 'package:finalproject/src/modules/auth/controllers/auth_service_controller.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
+        title: AriesImages.appLogo,
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 30),

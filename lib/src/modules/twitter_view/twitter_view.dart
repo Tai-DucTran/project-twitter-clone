@@ -1,3 +1,4 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:finalproject/src/modules/auth/controllers/auth_service_controller.dart';
 import 'package:finalproject/src/modules/profile_drawer/organism/drawer_profile.dart';
 import 'package:finalproject/src/modules/tweet/fletching_data/fletching_feed_posts.dart';
@@ -20,10 +21,7 @@ class _TwitterViewState extends State<TwitterView> {
         iconTheme: const IconThemeData(color: Colors.blue),
         backgroundColor: Colors.white,
         elevation: 0.5,
-        title: Image.asset(
-          'assets/images/logo.png',
-          fit: BoxFit.cover,
-        ),
+        title: AriesImages.appLogo,
         leading: Builder(
           builder: (context) => IconButton(
             padding: const EdgeInsets.only(

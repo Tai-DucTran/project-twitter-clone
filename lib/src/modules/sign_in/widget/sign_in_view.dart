@@ -40,7 +40,7 @@ class _SignInViewState extends State<SignInView> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        title: Image.asset('assets/images/logo.png', fit: BoxFit.cover),
+        title: AriesImages.appLogo,
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50),
