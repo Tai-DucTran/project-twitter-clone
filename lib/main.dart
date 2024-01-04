@@ -24,7 +24,7 @@ void main() async {
       routes: {
         loginRoute: (context) => const SignInView(),
         registerRoute: (context) => const SignUpView(),
-        twitterRoute: (context) => const Twitter(),
+        twitterRoute: (context) => const TwitterView(),
         verifyEmailRoute: (context) => const VerifyEmailView(),
         addTweetRoute: (context) => const AddTweetView(),
         profileRoute: (context) => const ProfileView(),
@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
             final user = AuthServiceController.firebase().currentUser;
             if (user != null) {
               if (user.isEmailVerified) {
-                return const Twitter();
+                return const TwitterView();
               } else {
                 return const VerifyEmailView();
               }

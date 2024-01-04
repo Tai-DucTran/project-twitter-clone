@@ -4,14 +4,14 @@ import 'package:finalproject/src/modules/tweet/fletching_data/fletching_feed_pos
 import 'package:flutter/material.dart';
 import '../../constants/routes.dart';
 
-class Twitter extends StatefulWidget {
-  const Twitter({super.key});
+class TwitterView extends StatefulWidget {
+  const TwitterView({super.key});
 
   @override
-  State<Twitter> createState() => _TwitterState();
+  State<TwitterView> createState() => _TwitterViewState();
 }
 
-class _TwitterState extends State<Twitter> {
+class _TwitterViewState extends State<TwitterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,11 @@ class _TwitterState extends State<Twitter> {
           },
           child: const Icon(Icons.add)),
       body: Container(
-        padding: const EdgeInsets.only(left: 20, right: 10, top: 15),
+        padding: const EdgeInsets.only(
+          left: 20,
+          right: 10,
+          top: 15,
+        ),
         child: ListView(
           children: const [
             FeedPosts(),

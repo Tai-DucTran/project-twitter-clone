@@ -47,7 +47,7 @@ class _CreateWidgetUnderTestState extends State<CreateWidgetUnderTest> {
       routes: {
         loginRoute: (context) => const SignInView(),
         registerRoute: (context) => const SignUpView(),
-        twitterRoute: (context) => const Twitter(),
+        twitterRoute: (context) => const TwitterView(),
         verifyEmailRoute: (context) => const VerifyEmailView(),
         addTweetRoute: (context) => const AddTweetView(),
         profileRoute: (context) => const ProfileView(),

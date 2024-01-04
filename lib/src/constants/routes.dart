@@ -2,7 +2,7 @@
 
 const loginRoute = '/login/';
 const registerRoute = '/register/';
-const twitterRoute = '/twitter/';
+const twitterRoute = '/twitter_view/';
 const verifyEmailRoute = '/verify_email/';
 const addTweetRoute = '/add_tweet/';
 const profileRoute = '/profile_view/';
