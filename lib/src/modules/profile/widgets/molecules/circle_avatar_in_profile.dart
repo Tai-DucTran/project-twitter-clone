@@ -13,20 +13,22 @@ class CircleAvatarInProfile extends StatelessWidget {
     required this.hasBackgroundBehind,
   });
 
-  static const double ratio = 9 / 4;
+  static const double ratioRadius = 9 / 4;
+  static const double ratioPositionHeight = 7 / 6;
 
   @override
   Widget build(BuildContext context) {
+    const double positionHeight = -25.0;
     return Stack(
       alignment: Alignment.topCenter,
       children: [
         hasBackgroundBehind
             ? Container(
-                width: radius * ratio,
-                height: radius * ratio,
+                width: radius * ratioRadius,
+                height: radius * ratioRadius,
                 transform: Matrix4.translationValues(
                   -140.0,
-                  -35.0,
+                  positionHeight * ratioPositionHeight,
                   0.0,
                 ),
                 decoration: BoxDecoration(
@@ -38,7 +40,7 @@ class CircleAvatarInProfile extends StatelessWidget {
         Container(
           transform: Matrix4.translationValues(
             -140.0,
-            -30.0,
+            positionHeight,
             0.0,
           ),
           child: CircleAvatar(
