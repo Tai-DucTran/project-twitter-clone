@@ -24,6 +24,19 @@ class _TwitterState extends State<Twitter> {
           'assets/images/logo.png',
           fit: BoxFit.cover,
         ),
+        leading: Builder(
+          builder: (context) => IconButton(
+            padding: const EdgeInsets.only(
+              left: 20,
+            ),
+            icon: const CircleAvatar(
+              backgroundImage:
+                  NetworkImage("https://robohash.org/\$15?set=set2"),
+              radius: 25,
+            ),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blue[400],
@@ -33,7 +46,11 @@ class _TwitterState extends State<Twitter> {
           child: const Icon(Icons.add)),
       body: Container(
         padding: const EdgeInsets.only(left: 20, right: 10, top: 15),
-        child: const FeedPosts(),
+        child: ListView(
+          children: const [
+            FeedPosts(),
+          ],
+        ),
       ),
       drawer: const DrawerProfile(),
     );
