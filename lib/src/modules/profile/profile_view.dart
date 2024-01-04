@@ -64,8 +64,8 @@ class _ProfileViewState extends State<ProfileView> {
           ),
           const CircleAvatarInProfile(
             imageUrl: "https://robohash.org/\$15?set=set2",
-            isDartModeOn: false,
             radius: 45.0,
+            hasBackgroundBehind: true,
           ),
         ],
       ),

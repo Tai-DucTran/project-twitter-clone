@@ -1,3 +1,4 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:finalproject/src/constants/routes.dart';
 import 'package:finalproject/src/modules/profile_drawer/atoms/custom_drawer_buttom.dart';
 import 'package:finalproject/src/modules/profile_drawer/molecules/profile_section.dart';
@@ -12,12 +13,14 @@ class DrawerProfile extends StatelessWidget {
     return Drawer(
       width: 350,
       child: Padding(
-        padding: const EdgeInsets.only(left: 20),
+        padding: const EdgeInsets.only(left: 18),
         child: ListView(
           children: <Widget>[
             const DrawerHeader(
+              padding: EdgeInsets.only(bottom: 20, left: 18),
               child: ProfileSection(),
             ),
+            Spacing.sp12,
             CustomDrawerButtom(
               icon: Icons.account_circle_rounded,
               buttomText: 'Profile',
