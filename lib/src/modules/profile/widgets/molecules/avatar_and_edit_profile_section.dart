@@ -1,3 +1,4 @@
+import 'package:finalproject/src/constants/routes.dart';
 import 'package:finalproject/src/modules/profile/widgets/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,9 @@ class AvatarAndEditProfileSection extends StatelessWidget {
             hasBackgroundBehind: true,
           ),
           EditProfileButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(editProfileRoute);
+            },
           )
         ],
       ),

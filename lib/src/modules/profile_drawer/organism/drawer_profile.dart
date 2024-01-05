@@ -1,7 +1,7 @@
 import 'package:aries_designs/aries_designs.dart';
 import 'package:finalproject/src/constants/routes.dart';
 import 'package:finalproject/src/modules/profile_drawer/atoms/custom_drawer_buttom.dart';
-import 'package:finalproject/src/modules/profile_drawer/molecules/profile_section.dart';
+import 'package:finalproject/src/modules/profile_drawer/molecules/drawer_profile_header_section.dart';
 import 'package:finalproject/src/modules/twitter_view/twitter_view.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +17,9 @@ class DrawerProfile extends StatelessWidget {
         child: ListView(
           children: <Widget>[
             const DrawerHeader(
-              padding: EdgeInsets.only(bottom: 20, left: 18),
-              child: ProfileSection(),
+              padding: EdgeInsets.symmetric(horizontal: 18, vertical: 2),
+              margin: EdgeInsets.symmetric(vertical: 2),
+              child: DrawerProfileHeaderSection(),
             ),
             Spacing.sp12,
             CustomDrawerButtom(
@@ -27,14 +28,6 @@ class DrawerProfile extends StatelessWidget {
               onButtomClick: () {
                 Navigator.of(context)
                     .pushNamedAndRemoveUntil(profileRoute, (route) => false);
-              },
-            ),
-            CustomDrawerButtom(
-              icon: Icons.admin_panel_settings_outlined,
-              buttomText: 'Edit Profile Testing',
-              onButtomClick: () {
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                    editProfileRoute, (route) => false);
               },
             ),
             CustomDrawerButtom(

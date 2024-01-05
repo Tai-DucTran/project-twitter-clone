@@ -14,9 +14,7 @@ class EditProfileButton extends StatelessWidget {
       width: 150,
       padding: const EdgeInsets.only(top: 20, left: 35),
       child: OutlinedButton(
-        onPressed: () {
-          onPressed;
-        },
+        onPressed: onPressed,
         child: Text(
           'Edit profile',
           style: Theme.of(context).textTheme.bodySmall,

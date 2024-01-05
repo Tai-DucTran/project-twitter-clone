@@ -4,14 +4,16 @@ import 'package:finalproject/src/modules/profile_drawer/atoms/following_and_foll
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class ProfileSection extends StatefulWidget {
-  const ProfileSection({super.key});
+class DrawerProfileHeaderSection extends StatefulWidget {
+  const DrawerProfileHeaderSection({super.key});
 
   @override
-  State<ProfileSection> createState() => _ProfileSectionState();
+  State<DrawerProfileHeaderSection> createState() =>
+      _DrawerProfileHeaderSectionState();
 }
 
-class _ProfileSectionState extends State<ProfileSection> {
+class _DrawerProfileHeaderSectionState
+    extends State<DrawerProfileHeaderSection> {
   final userName = FirebaseAuth.instance.currentUser?.displayName;
   @override
   Widget build(BuildContext context) {
@@ -29,14 +31,11 @@ class _ProfileSectionState extends State<ProfileSection> {
           ),
         ),
         Spacing.sp8,
-        Text(
-          userName.toString(),
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        UserNameAndTwitterNameSection(
+          userName: userName ?? 'user_name',
+          userNameHeight: 16,
+          twitterNameHeight: 12,
         ),
-        Text("@${userName.toString()}"),
         Spacing.sp8,
         const FollowingFollowersSection(
           followingNumber: 1,

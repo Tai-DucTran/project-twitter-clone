@@ -34,10 +34,7 @@ class _EditProfileState extends State<EditProfileView> {
               // cancelTextButton
               TextButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamedAndRemoveUntil(
-                    twitterRoute,
-                    (route) => false,
-                  );
+                  Navigator.of(context).pop();
                 },
                 child: const Text(
                   'Cancel',
