@@ -1,4 +1,7 @@
+import 'package:aries_designs/aries_designs.dart';
 import 'package:finalproject/src/modules/profile/widgets/molecules/molecules.dart';
+import 'package:finalproject/src/modules/profile_drawer/atoms/following_and_followers.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 const String _coverPicUrl =
@@ -14,15 +17,50 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
+    final userName = FirebaseAuth.instance.currentUser?.displayName;
+    const String profilePic = "https://robohash.org/\$15?set=set2";
+    const int following = 0;
+    const int follower = 0;
+    const bool isDartModeOn = false;
+    const String location = 'Vietnam';
+    final DateTime createdAt = DateTime(2024, DateTime.december);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView(
-        children: const [
-          CoverProfileSection(
+        children: [
+          const CoverProfileSection(
             coverPicUrl: _coverPicUrl,
           ),
-          AvatarAndEditProfileSection(
-            imageUrl: "https://robohash.org/\$15?set=set2",
+          Container(
+            transform: Matrix4.translationValues(
+              0.0,
+              -25,
+              0.0,
+            ),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const AvatarAndEditProfileSection(
+                  imageUrl: profilePic,
+                ),
+                UserNameAndTwitterNameSection(
+                  userName: userName ?? '',
+                ),
+              ],
+            ),
+          ),
+          LocationAndDateJoinSection(
+            location: location,
+            createdAt: createdAt,
+          ),
+          const FollowingFollowersSection(
+            followingNumber: following,
+            followerNumber: follower,
+            isDartModeOn: isDartModeOn,
           ),
         ],
       ),

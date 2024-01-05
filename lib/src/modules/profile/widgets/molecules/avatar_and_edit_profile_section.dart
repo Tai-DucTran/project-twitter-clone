@@ -15,32 +15,22 @@ class AvatarAndEditProfileSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const double positionHeight = -25.0;
-    return Container(
-      transform: Matrix4.translationValues(
-        0.0,
-        positionHeight,
-        0.0,
-      ),
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CircleAvatarInProfile(
-            positionHeight: positionHeight,
-            imageUrl: imageUrl,
-            radius: 40.0,
-            hasBackgroundBehind: true,
-          ),
-          EditProfileButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed(editProfileRoute);
-            },
-          )
-        ],
-      ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        CircleAvatarInProfile(
+          positionHeight: positionHeight,
+          imageUrl: imageUrl,
+          radius: 40.0,
+          hasBackgroundBehind: true,
+        ),
+        EditProfileButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed(editProfileRoute);
+          },
+        )
+      ],
     );
   }
 }

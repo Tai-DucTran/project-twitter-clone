@@ -18,13 +18,13 @@ class FollowingFollowersSection extends StatelessWidget {
     final Color numberTextColor = isDartModeOn ? Colors.white : Colors.black;
     final TextStyle numberTextStyle = Theme.of(context)
         .textTheme
-        .bodyMedium!
+        .bodySmall!
         .copyWith(color: numberTextColor, fontWeight: FontWeight.bold);
 
     final TextStyle followingFollowerTextStyle = Theme.of(context)
         .textTheme
-        .bodyMedium!
-        .copyWith(color: Colors.black, fontWeight: FontWeight.w500);
+        .bodySmall!
+        .copyWith(color: Colors.black, fontWeight: FontWeight.w300);
 
     return Row(
       children: [

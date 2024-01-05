@@ -1,2 +1,3 @@
-export 'avatar_and_edit_profile_section.dart';
-export 'cover_profile_section.dart';
+export './avatar_and_edit_profile_section.dart';
+export './cover_profile_section.dart';
+export './location_and_date_join_section.dart';
