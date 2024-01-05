@@ -31,6 +31,7 @@ void main() async {
         createUserNameRoute: (context) => const CreateUserNameView(),
         editProfileRoute: (context) => const EditProfileView(),
       },
+      debugShowCheckedModeBanner: false,
     ),
   );
 }
