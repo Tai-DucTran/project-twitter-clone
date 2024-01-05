@@ -24,7 +24,9 @@ mixin _$User {
   String get email => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
   bool get isCreator => throw _privateConstructorUsedError;
+  String? get location => throw _privateConstructorUsedError;
   String? get gender => throw _privateConstructorUsedError;
   String? get profilePic => throw _privateConstructorUsedError;
   String? get coverPic => throw _privateConstructorUsedError;
@@ -46,7 +48,9 @@ abstract class $UserCopyWith<$Res> {
       String email,
       String userName,
       String phoneNumber,
+      DateTime createdAt,
       bool isCreator,
+      String? location,
       String? gender,
       String? profilePic,
       String? coverPic,
@@ -71,7 +75,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? email = null,
     Object? userName = null,
     Object? phoneNumber = null,
+    Object? createdAt = null,
     Object? isCreator = null,
+    Object? location = freezed,
     Object? gender = freezed,
     Object? profilePic = freezed,
     Object? coverPic = freezed,
@@ -95,10 +101,18 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       isCreator: null == isCreator
           ? _value.isCreator
           : isCreator // ignore: cast_nullable_to_non_nullable
               as bool,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
       gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -135,7 +149,9 @@ abstract class _$$UserImplCopyWith<$Res> implements $UserCopyWith<$Res> {
       String email,
       String userName,
       String phoneNumber,
+      DateTime createdAt,
       bool isCreator,
+      String? location,
       String? gender,
       String? profilePic,
       String? coverPic,
@@ -157,7 +173,9 @@ class __$$UserImplCopyWithImpl<$Res>
     Object? email = null,
     Object? userName = null,
     Object? phoneNumber = null,
+    Object? createdAt = null,
     Object? isCreator = null,
+    Object? location = freezed,
     Object? gender = freezed,
     Object? profilePic = freezed,
     Object? coverPic = freezed,
@@ -181,10 +199,18 @@ class __$$UserImplCopyWithImpl<$Res>
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
       isCreator: null == isCreator
           ? _value.isCreator
           : isCreator // ignore: cast_nullable_to_non_nullable
               as bool,
+      location: freezed == location
+          ? _value.location
+          : location // ignore: cast_nullable_to_non_nullable
+              as String?,
       gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -217,7 +243,9 @@ class _$UserImpl extends _User {
       required this.email,
       required this.userName,
       required this.phoneNumber,
+      required this.createdAt,
       this.isCreator = false,
+      this.location,
       this.gender,
       this.profilePic,
       this.coverPic,
@@ -237,8 +265,12 @@ class _$UserImpl extends _User {
   @override
   final String phoneNumber;
   @override
+  final DateTime createdAt;
+  @override
   @JsonKey()
   final bool isCreator;
+  @override
+  final String? location;
   @override
   final String? gender;
   @override
@@ -252,7 +284,7 @@ class _$UserImpl extends _User {
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, userName: $userName, phoneNumber: $phoneNumber, isCreator: $isCreator, gender: $gender, profilePic: $profilePic, coverPic: $coverPic, birthOfDate: $birthOfDate, intro: $intro)';
+    return 'User(id: $id, email: $email, userName: $userName, phoneNumber: $phoneNumber, createdAt: $createdAt, isCreator: $isCreator, location: $location, gender: $gender, profilePic: $profilePic, coverPic: $coverPic, birthOfDate: $birthOfDate, intro: $intro)';
   }
 
   @override
@@ -266,8 +298,12 @@ class _$UserImpl extends _User {
                 other.userName == userName) &&
             (identical(other.phoneNumber, phoneNumber) ||
                 other.phoneNumber == phoneNumber) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
             (identical(other.isCreator, isCreator) ||
                 other.isCreator == isCreator) &&
+            (identical(other.location, location) ||
+                other.location == location) &&
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.profilePic, profilePic) ||
                 other.profilePic == profilePic) &&
@@ -280,8 +316,20 @@ class _$UserImpl extends _User {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, email, userName, phoneNumber,
-      isCreator, gender, profilePic, coverPic, birthOfDate, intro);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      email,
+      userName,
+      phoneNumber,
+      createdAt,
+      isCreator,
+      location,
+      gender,
+      profilePic,
+      coverPic,
+      birthOfDate,
+      intro);
 
   @JsonKey(ignore: true)
   @override
@@ -303,7 +351,9 @@ abstract class _User extends User {
       required final String email,
       required final String userName,
       required final String phoneNumber,
+      required final DateTime createdAt,
       final bool isCreator,
+      final String? location,
       final String? gender,
       final String? profilePic,
       final String? coverPic,
@@ -322,7 +372,11 @@ abstract class _User extends User {
   @override
   String get phoneNumber;
   @override
+  DateTime get createdAt;
+  @override
   bool get isCreator;
+  @override
+  String? get location;
   @override
   String? get gender;
   @override
