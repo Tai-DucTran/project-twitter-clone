@@ -1,6 +1,5 @@
 import 'package:aries_designs/aries_designs.dart';
 import 'package:finalproject/src/modules/profile/widgets/molecules/molecules.dart';
-import 'package:finalproject/src/modules/profile_drawer/atoms/following_and_followers.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -53,26 +52,12 @@ class _ProfileViewState extends State<ProfileView> {
               ],
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: const EdgeInsets.only(left: 18),
-                child: LocationAndDateJoinSection(
-                  location: location,
-                  createdAt: createdAt,
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.only(left: 20),
-                child: const FollowingFollowersSection(
-                  followingNumber: following,
-                  followerNumber: follower,
-                  isDartModeOn: isDartModeOn,
-                ),
-              ),
-            ],
+          GeneralProfileInfoSection(
+            location: location,
+            createdAt: createdAt,
+            follower: follower,
+            following: following,
+            isDartModeOn: isDartModeOn,
           ),
         ],
       ),
