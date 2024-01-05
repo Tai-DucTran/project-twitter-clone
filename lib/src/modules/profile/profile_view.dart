@@ -53,14 +53,26 @@ class _ProfileViewState extends State<ProfileView> {
               ],
             ),
           ),
-          LocationAndDateJoinSection(
-            location: location,
-            createdAt: createdAt,
-          ),
-          const FollowingFollowersSection(
-            followingNumber: following,
-            followerNumber: follower,
-            isDartModeOn: isDartModeOn,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                padding: const EdgeInsets.only(left: 18),
+                child: LocationAndDateJoinSection(
+                  location: location,
+                  createdAt: createdAt,
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.only(left: 20),
+                child: const FollowingFollowersSection(
+                  followingNumber: following,
+                  followerNumber: follower,
+                  isDartModeOn: isDartModeOn,
+                ),
+              ),
+            ],
           ),
         ],
       ),
