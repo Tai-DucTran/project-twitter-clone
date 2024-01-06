@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 const String _coverPicUrl =
     'https://e0.pxfuel.com/wallpapers/691/707/desktop-wallpaper-morgan-codes-minimal-minimalist-code.jpg';
+const String _intro =
+    'Hello world, this is Tai Tran, here is my test account. And I do not know what should I say about me';
 
 class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
@@ -53,6 +55,7 @@ class _ProfileViewState extends State<ProfileView> {
             ),
           ),
           GeneralProfileInfoSection(
+            // intro: _intro,
             location: location,
             createdAt: createdAt,
             follower: follower,
