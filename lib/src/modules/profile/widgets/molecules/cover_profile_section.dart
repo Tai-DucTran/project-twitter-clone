@@ -2,10 +2,10 @@ import 'package:finalproject/src/modules/profile/widgets/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
 class CoverProfileSection extends StatelessWidget {
-  final String coverPicUrl;
+  final String? coverPicUrl;
   const CoverProfileSection({
     super.key,
-    required this.coverPicUrl,
+    this.coverPicUrl,
   });
 
   @override
@@ -13,9 +13,10 @@ class CoverProfileSection extends StatelessWidget {
     return Container(
       height: 150,
       decoration: BoxDecoration(
+        color: Colors.blue,
         image: DecorationImage(
           image: NetworkImage(
-            coverPicUrl,
+            coverPicUrl ?? '',
           ),
           fit: BoxFit.fill,
         ),

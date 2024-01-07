@@ -1,4 +1,3 @@
-import 'package:aries_designs/aries_designs.dart';
 import 'package:finalproject/src/modules/profile/widgets/atoms/atoms.dart';
 import 'package:flutter/material.dart';
 
@@ -24,26 +23,9 @@ class GeneralProfileInfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool hasIntro = intro != '';
     return Wrap(
       direction: Axis.vertical,
       children: [
-        // hasIntro
-        //     ? Column(
-        //         children: [
-        //           Container(
-        //             padding: const EdgeInsets.only(left: 19),
-        //             child: Text(
-        //               intro ?? '',
-        //               style: const TextStyle(
-        //                 fontWeight: FontWeight.w300,
-        //               ),
-        //             ),
-        //           ),
-        //           Spacing.sp8,
-        //         ],
-        //       )
-        //     : const Offstage(),
         Container(
           padding: const EdgeInsets.only(left: 18),
           child: Column(
