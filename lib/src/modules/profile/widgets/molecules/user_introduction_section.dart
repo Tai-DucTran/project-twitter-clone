@@ -1,9 +1,9 @@
 import 'package:aries_designs/aries_designs.dart';
 import 'package:flutter/material.dart';
 
-class UserIntroSection extends StatelessWidget {
+class UserIntroductionSection extends StatelessWidget {
   final String? intro;
-  const UserIntroSection({
+  const UserIntroductionSection({
     super.key,
     this.intro,
   });

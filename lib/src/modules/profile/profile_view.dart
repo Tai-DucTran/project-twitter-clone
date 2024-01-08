@@ -54,7 +54,7 @@ class _ProfileViewState extends State<ProfileView> {
               ],
             ),
           ),
-          const UserIntroSection(
+          const UserIntroductionSection(
             intro: _intro,
           ),
           GeneralProfileInfoSection(
