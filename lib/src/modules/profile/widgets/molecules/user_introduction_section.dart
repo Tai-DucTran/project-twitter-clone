@@ -15,12 +15,14 @@ class UserIntroductionSection extends StatelessWidget {
         ? Column(
             children: [
               Container(
-                padding: const EdgeInsets.only(left: 19),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 19,
+                ),
                 child: Text(
                   intro ?? '',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w300,
-                  ),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontWeight: FontWeight.w400,
+                      ),
                 ),
               ),
               Spacing.sp8,
